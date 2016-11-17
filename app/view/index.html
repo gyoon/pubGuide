@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>KDB</title>
+    <style>
+        .backlog {background:#999;}
+        .ready {background:#8a73ff;}
+        .progress {background:#1fc231;}
+        .done {background:#ff5144;}
+
+        body { margin:0; }
+        h1 {
+            font-size: 28px;
+            padding: 0 0 20px 20px;
+            border-bottom: 1px #e3e3e3 solid}
+
+        a { color:black; }
+
+        .guideContainerBox{
+            margin-top: 20px;
+        }
+
+        .guideContainerBox h2 {
+            font-size: 16px;
+            padding-left: 20px;
+            margin-top: 30px;
+            transform: translate3d(300px, 0, 0px);
+            transition: 0.6s cubic-bezier(0.4, 0.38, 0, 1.19);
+        }
+
+        .itemcontainer {
+            display: flex;
+        }
+        .guideCard {
+            margin: 0 10px 0px 10px;
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 8px;
+            box-shadow: 7px 6px 33px -2px rgba(173, 170, 173, 0.75);
+            transition: 0.6s cubic-bezier(0.4, 0.38, 0, 1.19);
+            transform: translate3d(300px, 0, 0px);
+        }
+
+        .guideContainerBox.ani .guideCard, .guideContainerBox.ani h2 {
+            transform: translate3d(0px, 0, 0px);
+        }
+
+        .guideCard .name {
+            display: flex;
+            align-items: baseline;
+            align-content: center;
+            margin: 10px 0;
+        }
+        .guideCard .name div {
+            margin-left: 20px;
+            color: #a0a0a0;
+            font-size: 12px;
+        }
+        .guideCard .name a {
+            font-size: 20px;
+        }
+        .guideCard .check span {
+            font-size: 11px;
+            color: #fff;
+            display: inline-block;
+            padding: 2px 3px;
+            border-radius: 4px;
+        }
+        .guideCard .comp {
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+<h1>KDB pubilshing Guide</h1>
+<div class="guideContainerBox" id="guideContainer">
+    <h2>Guide</h2>
+    <div class="itemcontainer" id="guideComp"></div>
+
+    <h2>Index</h2>
+    <div class="itemcontainer" id="indexComp"></div>
+
+    <h2>Sub</h2>
+    <div class="itemcontainer" id="subComp"></div>
+
+    <h2>admin</h2>
+    <div class="itemcontainer" id="adminComp"></div>
+</div>
+<script type="text/javascript" src="./menu.js" ></script>
+</body>
+</html>
