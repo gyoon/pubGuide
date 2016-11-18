@@ -12,7 +12,9 @@ var target = {
     sassSrc : '/scss/*.scss',
     resourceSrc : '/resource/**/*',
     htmlSrc : '/**/*.html',
-    jsSrc : '/js/**/*',
+    jsSrc : '/view/**/*.js',
+    indexJsSrc : '/*.js',
+    guideJsSrc : '/guide/**/*.js',
     dest : 'build/',
     bowerComponents : 'bower_components',
     libFiles : '/**/*'
@@ -28,7 +30,7 @@ gulp.task ('scss', [ 'clean' ], function (){
 gulp.task('vendor', [ 'clean' ], function() {
     var fontFilter = filter([ 'bower_components/**/*.eot', 'bower_components/**/*.svg', 'bower_components/**/*.ttf', 'bower_components/**/*.woff', 'bower_components/**/*.woff2' ], {restore: true});
     gulp
-        .src(['bower_components/reset-css/**/*.css', 'bower_components/font-awesome/css/font-awesome.css', 'bower_components/jquery-combobox/css/combobox.css'])
+        .src(['bower_components/nvd3/build/nv.d3.min.css', 'bower_components/nvd3/build/nv.d3.min.css.map'])
         .pipe(concat('vendor.css'))
         .pipe(gulp.dest(target.dest +'scss'));
 
@@ -76,8 +78,14 @@ gulp.task('lib', [ 'clean' ], function() {
 
 gulp.task('javascript', [ 'clean' ], function() {
     gulp
-        .src(target.jsSrc)
-        .pipe(gulp.dest(target.dest +'js'));
+        .src(target.main + target.jsSrc)
+        .pipe(gulp.dest(target.dest + '/view'));
+    gulp
+        .src(target.main + target.indexJsSrc)
+        .pipe(gulp.dest(target.dest));
+    gulp
+        .src(target.main + target.guideJsSrc)
+        .pipe(gulp.dest(target.dest + '/guide'));
 });
 
 

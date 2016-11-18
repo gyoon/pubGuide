@@ -13,5 +13,9 @@
     "tests"
   ],
   "dependencies": {
+    "d3": "~4.3.0",
+    "nvd3": "~1.8.4",
+    "angular-nvd3": "~1.0.9",
+    "angular-route": "~1.5.8"
   }
 }

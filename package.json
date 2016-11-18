@@ -2,7 +2,7 @@
   "name": "kdb",
   "version": "0.0.1",
   "scripts": {
-    "start": "gulp build && http-server -p 3000",
+    "start": "gulp build && http-server -p 3002 -c-1",
     "dev": "gulp dev",
     "build": "gulp build"
   },

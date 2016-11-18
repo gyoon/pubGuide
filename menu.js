@@ -1,56 +1,49 @@
 var dataMenu = {
     menuList: [{
         name: 'line Chart',
-        link: 'build/index.html',
+        link: 'build/guide/lineChart/lineChart.html',
         dep: 'guide',
         due: '2016.11.11',
         check: 'backlog',
-        comp: 'angularjs, nvD3'
-    }, {
-        name: 'table Grid',
-        link: 'build/guide/table.html',
-        dep: 'guide',
-        due: '2016.11.11',
-        check: 'backlog',
-        comp: 'angularjs, grid'
+        comp: 'angularjs, angular-nvd3'
     }, {
         name: 'Dashboard',
-        link: 'build/view/dashboard.html',
+        link: 'build/',
         dep: 'index',
         due: '2016.11.11',
         check: 'ready',
         comp: 'angularjs, nvD3, grid'
     }, {
         name: 'Rule',
-        link: 'build/view/dashboard.html',
+        link: 'build/#/Rule',
         dep: 'sub',
         due: '2016.11.11',
         check: 'ready',
         comp: 'angularjs, nvD3, grid'
     }, {
         name: 'Alert',
-        link: 'build/view/dashboard.html',
+        link: 'build/#/Alert',
         dep: 'sub',
         due: '2016.11.11',
         check: 'ready',
         comp: 'angularjs, nvD3, grid'
     }, {
         name: 'Search',
-        link: 'build/view/dashboard.html',
+        link: 'build/#/Search',
         dep: 'sub',
         due: '2016.11.11',
         check: 'ready',
         comp: 'angularjs, nvD3, grid'
     }, {
         name: 'member',
-        link: 'view/dashboard.html',
+        link: 'build/#/member',
         dep: 'sub',
         due: '2016.11.11',
         check: 'progress',
         comp: 'angularjs, nvD3, grid'
     }, {
         name: 'admin',
-        link: 'view/dashboard.html',
+        link: 'build/#/admin',
         dep: 'admin',
         due: '2016.11.11',
         check: 'done',

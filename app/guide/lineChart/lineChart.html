@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>KDB</title>
+    <link rel="stylesheet" href="../../scss/vendor.css" />
+    <link rel="stylesheet" href="../../scss/app.css" />
+</head>
+<body>
+
+<div ng-app="lineChartCtrlApp" ng-controller="lineChartCtrl">
+
+    <h2>Line Chart</h2>
+    <nvd3 options="options" data="data"></nvd3>
+
+</div>
+
+
+<script src="../../lib/angular/angular.min.js"></script>
+
+<script src="../../lib/d3/d3.js"></script>
+<script src="../../lib/nvd3/build/nv.d3.js"></script> <!-- or use another assembly -->
+<script src="../../lib/angular-nvd3/dist/angular-nvd3.js"></script>
+
+<!--controller-->
+<script src="lineChart.controller.js"></script>
+
+</body>
+</html>
