@@ -30,14 +30,25 @@ gulp.task ('scss', [ 'clean' ], function (){
 gulp.task('vendor', [ 'clean' ], function() {
     var fontFilter = filter([ 'bower_components/**/*.eot', 'bower_components/**/*.svg', 'bower_components/**/*.ttf', 'bower_components/**/*.woff', 'bower_components/**/*.woff2' ], {restore: true});
     gulp
-        .src(['bower_components/nvd3/build/nv.d3.min.css', 'bower_components/nvd3/build/nv.d3.min.css.map'])
+        .src([
+            'bower_components/angular-bootstrap/ui-bootstrap-csp.css',
+            'bower_components/bootstrap/dist/css/bootstrap.min.css',
+            'bower_components/angular-ui-select/dist/select.min.css',
+            'bower_components/angular-datatables/dist/css/angular-datatables.css',
+            'bower_components/nvd3/build/nv.d3.min.css',
+            'bower_components/nvd3/build/nv.d3.min.css.map'])
         .pipe(concat('vendor.css'))
         .pipe(gulp.dest(target.dest +'scss'));
 
     gulp
-        .src(['bower_components/font-awesome/**/*.eot', 'bower_components/font-awesome/**/*.svg', 'bower_components/font-awesome/**/*.ttf', 'bower_components/font-awesome/**/*.woff', 'bower_components/font-awesome/**/*.woff2'])
+        .src([
+            'bower_components/bootstrap/fonts/*.eot',
+            'bower_components/bootstrap/fonts/*.svg',
+            'bower_components/bootstrap/fonts/*.ttf',
+            'bower_components/bootstrap/fonts/*.woff',
+            'bower_components/bootstrap/fonts/*.woff2'])
         .pipe(fontFilter)
-        .pipe(gulp.dest(target.dest +'font'));
+        .pipe(gulp.dest(target.dest +'fonts'));
 });
 
 gulp.task('resource', [ 'clean' ], function() {

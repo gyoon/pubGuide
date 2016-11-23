@@ -13,9 +13,16 @@
     "tests"
   ],
   "dependencies": {
-    "d3": "~4.3.0",
     "nvd3": "~1.8.4",
     "angular-nvd3": "~1.0.9",
-    "angular-route": "~1.5.8"
+    "angular-route": "~1.5.8",
+    "angular-datatables": "~0.5.5",
+    "datatables.net": "~1.10.12",
+    "angular-ui-select": "~0.19.6",
+    "angular": "~1.5.8",
+    "jquery": "~3.1.1",
+    "bootstrap": "~3.3.7",
+    "angular-bootstrap": "~2.2.0",
+    "d3": "~4.3.0"
   }
 }

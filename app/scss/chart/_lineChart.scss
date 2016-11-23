@@ -1,0 +1,35 @@
+.lineChart {
+  .nv-area ~ .nv-line {
+    display: none;
+  }
+  .nv-series {
+    &:nth-of-type(1) {transform:translate(400px,150px)!important;}
+    &:nth-of-type(2) {transform:translate(400px,180px)!important;}
+    &:nth-of-type(3) {transform:translate(400px,210px)!important;}
+    &:nth-of-type(4) {transform:translate(400px,240px)!important;}
+    &:nth-of-type(5) {transform:translate(400px,270px)!important;}
+  }
+  .nv-x {
+    g.tick {
+      line {
+        opacity: 0!important;
+      }
+    }
+    path.domain {
+      stroke-opacity:1!important;
+      stroke:#e5e5e5!important;
+    }
+  }
+  .nv-y {
+    g.tick {
+      text {
+      }
+    }
+    path.domain {
+      opacity: 0;
+    }
+  }
+  .nv-group {
+    stroke-opacity: .6!important;
+  }
+}

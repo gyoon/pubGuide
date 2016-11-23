@@ -8,10 +8,10 @@
 </head>
 <body>
 
-<div ng-app="lineChartApp" ng-controller="lineChartCtrl" class="guide">
+<div ng-app="pieChartApp" ng-controller="pieChartCtrl" class="guide">
 
-    <h2>Line Chart</h2>
-    <nvd3 options="options" data="data" class="lineChart"></nvd3>
+    <h2>Pie Chart</h2>
+    <nvd3 id="chart" options="options" data="data" class="pieChart"></nvd3>
 
 </div>
 
@@ -23,7 +23,7 @@
 <script src="../../lib/angular-nvd3/dist/angular-nvd3.js"></script>
 
 <!--controller-->
-<script src="lineChart.controller.js"></script>
+<script src="pieChart.controller.js"></script>
 
 </body>
 </html>

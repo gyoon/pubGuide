@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>KDB</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="../../scss/vendor.css" />
+    <link rel="stylesheet" href="../../scss/app.css" />
+</head>
+<body>
+
+<div ng-app="datatablesApp" ng-controller="datatablesCtrl" class="guide">
+
+    <h2>datatables</h2>
+    <table datatable="ng" dt-options="vm.dtOptions" dt-column-defs="vm.dtColumnDefs" class="row-border hover">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="list in data">
+            <td>{{ list.id }}</td>
+            <td>{{ list.title }}</td>
+            <td>{{ list.date }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+
+<script src="../../lib/jquery/dist/jquery.min.js"></script>
+<script src="../../lib/angular/angular.min.js"></script>
+
+<!--datatables-->
+<script src="../../lib/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="../../lib/angular-datatables/dist/angular-datatables.min.js"></script>
+
+<!--controller-->
+<script src="datatables.controller.js"></script>
+
+</body>
+</html>

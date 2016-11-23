@@ -3,9 +3,72 @@ var dataMenu = {
         name: 'line Chart',
         link: 'build/guide/lineChart/lineChart.html',
         dep: 'guide',
-        due: '2016.11.11',
+        due: '2016.11.18',
         check: 'backlog',
         comp: 'angularjs, angular-nvd3'
+    }, {
+        name: 'pie Chart',
+        link: 'build/guide/pieChart/pieChart.html',
+        dep: 'guide',
+        due: '2016.11.18',
+        check: 'backlog',
+        comp: 'angularjs, angular-nvd3'
+    }, {
+        name: 'Datatables',
+        link: 'build/guide/datatables/datatables.html',
+        dep: 'guide',
+        due: '2016.11.18',
+        check: 'backlog',
+        comp: 'angularjs, angular-datatables'
+    }, {
+        name: 'inputText',
+        link: 'build/guide/inputText/inputText.html',
+        dep: 'guide',
+        due: '2016.11.18',
+        check: 'backlog',
+        comp: 'angularjs, bootstrap'
+    }, {
+        name: 'button',
+        link: 'build/guide/button/button.html',
+        dep: 'guide',
+        due: '2016.11.18',
+        check: 'backlog',
+        comp: 'angularjs, bootstrap'
+    }, {
+        name: 'UI Select',
+        link: 'build/guide/uiSelect/uiSelect.html',
+        dep: 'guide',
+        due: '2016.11.18',
+        check: 'backlog',
+        comp: 'angularjs, ui-select'
+    }, {
+        name: 'Datepicker',
+        link: 'build/guide/datepicker/datepicker.html',
+        dep: 'guide',
+        due: '2016.11.18',
+        check: 'backlog',
+        comp: 'angularjs, angular-bootstrap'
+    }, {
+        name: 'Timepicker',
+        link: 'build/guide/timepicker/timepicker.html',
+        dep: 'guide',
+        due: '2016.11.18',
+        check: 'backlog',
+        comp: 'angularjs, angular-bootstrap'
+    }, {
+        name: 'Modal',
+        link: 'build/guide/modal/modal.html',
+        dep: 'guide',
+        due: '2016.11.18',
+        check: 'backlog',
+        comp: 'angularjs, angular-bootstrap'
+    }, {
+        name: 'Progressbar',
+        link: 'build/guide/progressbar/progressbar.html',
+        dep: 'guide',
+        due: '2016.11.18',
+        check: 'backlog',
+        comp: 'angularjs, angular-bootstrap'
     }, {
         name: 'Dashboard',
         link: 'build/',

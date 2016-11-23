@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>KDB</title>
+    <link rel="stylesheet" href="../../scss/vendor.css" />
+    <link rel="stylesheet" href="../../scss/app.css" />
+</head>
+<body>
+
+<div ng-app="progressbarApp" ng-controller="progressbarCtrl" class="guide">
+
+    <h2>Progressbar</h2>
+
+    <div class="row">
+        <div class="col-sm-4"><uib-progressbar value="55"></uib-progressbar></div>
+        <div class="col-sm-4"><uib-progressbar class="progress-striped" value="22" type="warning">22%</uib-progressbar></div>
+        <div class="col-sm-4"><uib-progressbar class="progress-striped active" max="200" value="166" type="danger"><i>166 / 200</i></uib-progressbar></div>
+    </div>
+
+    <hr />
+    <h3>Dynamic <button type="button" class="btn btn-sm btn-primary" ng-click="random()">Randomize</button></h3>
+    <uib-progressbar max="max" value="dynamic"><span style="color:white; white-space:nowrap;">{{dynamic}} / {{max}}</span></uib-progressbar>
+
+    <small><em>No animation</em></small>
+    <uib-progressbar animate="false" value="dynamic" type="success"><b>{{dynamic}}%</b></uib-progressbar>
+
+    <small><em>Object (changes type based on value)</em></small>
+    <uib-progressbar class="progress-striped active" value="dynamic" type="{{type}}">{{type}} <i ng-show="showWarning">!!! Watch out !!!</i></uib-progressbar>
+
+</div>
+
+<script src="../../lib/jquery/dist/jquery.min.js"></script>
+<script src="../../lib/angular/angular.min.js"></script>
+
+<!--bootstrap ui-->
+<script src="../../lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+<!--controller-->
+<script src="progressbar.controller.js"></script>
+
+</body>
+</html>

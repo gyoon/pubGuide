@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>KDB</title>
+    <link rel="stylesheet" href="../../scss/vendor.css" />
+    <link rel="stylesheet" href="../../scss/app.css" />
+</head>
+<body>
+
+<div ng-app="buttonApp" ng-controller="buttonCtrl" class="guide">
+
+    <h2>button</h2>
+
+    <div class="btn-group">
+        <label class="btn btn-primary" ng-model="checkModel.left" uib-btn-checkbox>Left</label>
+        <label class="btn btn-primary" ng-model="checkModel.middle" uib-btn-checkbox>Middle</label>
+        <label class="btn btn-primary" ng-model="checkModel.right" uib-btn-checkbox>Right</label>
+    </div>
+    <div class="btn-group">
+        <label class="btn btn-success" ng-model="radioModel" uib-btn-radio="'Left'" uncheckable>Left</label>
+        <label class="btn btn-success" ng-model="radioModel" uib-btn-radio="'Middle'" uncheckable>Middle</label>
+        <label class="btn btn-success" ng-model="radioModel" uib-btn-radio="'Right'" uib-uncheckable="uncheckable">Right</label>
+    </div>
+
+</div>
+
+<script src="../../lib/jquery/dist/jquery.min.js"></script>
+<script src="../../lib/angular/angular.min.js"></script>
+<script src="../../lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<!--controller-->
+<script src="button.controller.js"></script>
+
+</body>
+</html>
