@@ -1,0 +1,13 @@
+<div ng-controller="inforchartCtrl">
+    <div class="inforchart">
+        <div class="item" ng-class="anicheck ? 'anion' : 'anioff'">
+            <div class="title">금일 위협정보 현황</div>
+            <div class="value">{{todayDate | date:'yyyy년 MM월 dd일'}}</div>
+        </div>
+        <infor-chart-directive
+                ng-repeat="item in data"
+                data="item"
+                ng-class="anicheck ? 'anion' : 'anioff'">
+        </infor-chart-directive>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>KDB</title>
+    <link rel="stylesheet" href="../../scss/vendor.css" />
+    <link rel="stylesheet" href="../../scss/app.css" />
+</head>
+<body>
+
+<div ng-app="minitableApp" ng-controller="minitableCtrl" class="guide">
+
+    <h2>Mini table</h2>
+
+    <div class="col-sm-5" style="padding: 0">
+        <div class="miniTable x3">
+            <div class="tableHeader">
+                <div>이벤트명</div>
+                <div>Rule</div>
+                <div>회사명</div>
+            </div>
+            <mini-table-directive
+                    ng-repeat="item in data"
+                    col="3"
+                    data="item">
+            </mini-table-directive>
+        </div>
+
+        <br><br>
+
+        <div class="miniTable x2">
+            <div class="tableHeader">
+                <div>정보명</div>
+                <div>발생일시</div>
+            </div>
+            <mini-table-directive
+                    ng-repeat="item in data2"
+                    col="2"
+                    data="item">
+            </mini-table-directive>
+        </div>
+    </div>
+
+</div>
+
+<script src="../../lib/jquery/dist/jquery.min.js"></script>
+<script src="../../lib/angular/angular.min.js"></script>
+<script src="../../lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<!--controller-->
+<script src="minitable.controller.js"></script>
+
+</body>
+</html>

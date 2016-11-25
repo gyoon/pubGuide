@@ -9,11 +9,16 @@
 </head>
 <body>
 
-<div ng-app="kdbApp" ng-controller="indexCtrl">
+<div ng-app="kdbApp" ng-controller="indexCtrl" class="appBody">
 
-    <div ng-include="'view/layout/layout.html'"></div>
-
-    <ng-view></ng-view>
+    <div class="containerIndex">
+        <div ng-include="'view/layout/layout.html'" class="includeLayout"></div>
+        <div class="containerContents">
+            <div ng-include="'view/layout/header.html'" class="includeHeader"></div>
+            <ng-view></ng-view>
+            <div ng-include="'view/layout/footer.html'" class="includeFooter"></div>
+        </div>
+    </div>
 
 </div>
 
@@ -40,10 +45,23 @@
 <!--bootstrap ui-->
 <script src="lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 
+<!--bootstrap daterangepicker-->
+<script src="lib/moment/moment.js"></script>
+<script src="lib/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script src="lib/angular-daterangepicker/js/angular-daterangepicker.min.js"></script>
+
+
 <!--controller-->
 <script src="index.controller.js"></script>
+
 <script src="view/layout/layout.controller.js"></script>
+<script src="view/layout/header.controller.js"></script>
+
 <script src="view/dashboard/dashboard.controller.js"></script>
+<script src="view/dashboard/comp/inforchart.controller.js"></script>
+<script src="view/dashboard/comp/lineChart.controller.js"></script>
+<script src="view/dashboard/comp/progressbarchart.controller.js"></script>
+
 <script src="view/alert/alert.controller.js"></script>
 <script src="view/rule/rule.controller.js"></script>
 <script src="view/search/search.controller.js"></script>

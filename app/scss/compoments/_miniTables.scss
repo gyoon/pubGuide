@@ -1,0 +1,38 @@
+.miniTable {
+  &.x3 {
+    .tableHeader td, .tablebody td {width: 33.33%}
+  }
+  &.x2 {
+    .tableHeader td, .tablebody td {width: 50%}
+  }
+  .tableHeader {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    background: #e4f2fb;
+    color:#596879;
+    font-weight:bold;
+    font-size: 10px;
+    > div {
+      width: 100%;
+      padding: 10px 10px;
+    }
+  }
+  .tablebody {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    background-color: #ecf0f3;
+    color:#596879;
+    font-size: 10px;
+    &:nth-child(2n) { background-color: transparent }
+    > div {
+      width: 100%;
+      padding: 10px 10px;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+      word-wrap:normal;
+      overflow: hidden;
+    }
+  }
+}

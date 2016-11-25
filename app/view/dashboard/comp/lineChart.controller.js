@@ -1,11 +1,11 @@
-var app = angular.module('lineChartApp', ['nvd3'])
+app
 .controller('lineChartCtrl', function($scope, $http, $timeout, $window) {
 
     var colors = ["#1e90e5", "#e1bce5", "#c4e6ff", "#e2f25c", '#75de97'];
     $scope.options = {
         chart: {
             type: 'lineChart',
-            height: 240,
+            height: 450,
             strokeWidth: 0,
             disabled: false,
             margin : {
@@ -139,20 +139,6 @@ var app = angular.module('lineChartApp', ['nvd3'])
                     + d3.selectAll(".nv-series:nth-of-type(" + (i + 1) + ") circle").attr('style') + "fill-opacity:.3;"
             });
 
-
-
-        /*    .attr("text-anchor","middle")
-            .attr("transform","translate(" + (textTranslate + 30) + ",10)")
-            .attr("class","chartValue")
-            .attr("style","font-weight:bold;fill:#596879")
-            .text ('회사명');*/
-
-        var series = d3.selectAll(".nv-series");
-        series.attr("transform",
-            function(d, i) {
-                return "translate(400,"+ (i + 5) * 30 +")";
-            }
-        )
         var legendText = d3.selectAll(".nv-legend-text");
         legendText.attr("transform","translate(8,0)");
 

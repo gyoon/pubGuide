@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>KDB</title>
+    <link rel="stylesheet" href="../../scss/vendor.css" />
+    <link rel="stylesheet" href="../../scss/app.css" />
+</head>
+<body>
+
+<div ng-app="progressbarChartApp" ng-controller="progressbarChartCtrl" class="guide">
+
+    <h2>progressbarChart</h2>
+
+    <div class="col-sm-3">
+        <div ng-repeat="item in data">
+            <progress-chart-directive
+                    type="analysis"
+                    data="item"
+                    ng-class="anicheck ? 'anion' : 'anioff'">
+            </progress-chart-directive>
+        </div>
+    </div>
+
+    <div class="col-sm-3">
+        <div ng-repeat="item in data">
+            <progress-chart-directive
+                    type="files"
+                    data="item"
+                    ng-class="anicheck ? 'anion' : 'anioff'">
+            </progress-chart-directive>
+        </div>
+    </div>
+
+    <div class="col-sm-3">
+        <div ng-repeat="item in data">
+            <progress-chart-directive
+                    type="area" data="item"
+                    ng-class="anicheck ? 'anion' : 'anioff'">
+            </progress-chart-directive>
+        </div>
+    </div>
+
+    <div class="col-sm-3">
+        <div ng-repeat="item in data">
+            <progress-chart-directive
+                    type="pass"
+                    data="item"
+                    ng-class="anicheck ? 'anion' : 'anioff'">
+            </progress-chart-directive>
+        </div>
+    </div>
+
+    <div class="col-sm-3">
+        <div ng-repeat="item in data">
+            <progress-chart-directive
+                    type="cnc"
+                    data="item"
+                    ng-class="anicheck ? 'anion' : 'anioff'">
+            </progress-chart-directive>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+<script src="../../lib/jquery/dist/jquery.min.js"></script>
+<script src="../../lib/angular/angular.min.js"></script>
+
+<!--bootstrap ui-->
+<script src="../../lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+<!--controller-->
+<script src="progressbarchart.controller.js"></script>
+
+</body>
+</html>

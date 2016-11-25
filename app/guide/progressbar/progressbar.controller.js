@@ -22,7 +22,6 @@ var app = angular.module('progressbarApp', ['ui.bootstrap'])
         $scope.dynamic = value;
         $scope.type = type;
     };
-
     $scope.random();
 
     $scope.randomStacked = function() {
@@ -37,7 +36,6 @@ var app = angular.module('progressbarApp', ['ui.bootstrap'])
             });
         }
     };
-
     $scope.randomStacked();
 
-});
+})

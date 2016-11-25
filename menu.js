@@ -4,14 +4,14 @@ var dataMenu = {
         link: 'build/guide/lineChart/lineChart.html',
         dep: 'guide',
         due: '2016.11.18',
-        check: 'backlog',
+        check: 'done',
         comp: 'angularjs, angular-nvd3'
     }, {
         name: 'pie Chart',
         link: 'build/guide/pieChart/pieChart.html',
         dep: 'guide',
         due: '2016.11.18',
-        check: 'backlog',
+        check: 'done',
         comp: 'angularjs, angular-nvd3'
     }, {
         name: 'Datatables',
@@ -49,6 +49,13 @@ var dataMenu = {
         check: 'backlog',
         comp: 'angularjs, angular-bootstrap'
     }, {
+        name: 'bootstrapDaterangepicker',
+        link: 'build/guide/bootstrapDaterangepicker/bootstrapDaterangepicker.html',
+        dep: 'guide',
+        due: '2016.11.18',
+        check: 'backlog',
+        comp: 'angularjs, angular-bootstrap'
+    }, {
         name: 'Timepicker',
         link: 'build/guide/timepicker/timepicker.html',
         dep: 'guide',
@@ -70,46 +77,67 @@ var dataMenu = {
         check: 'backlog',
         comp: 'angularjs, angular-bootstrap'
     }, {
+        name: 'ProgressChart',
+        link: 'build/guide/progressbarchart/progressbarchart.html',
+        dep: 'guide',
+        due: '2016.11.18',
+        check: 'done',
+        comp: 'angularjs, directive'
+    }, {
+        name: 'Mini table',
+        link: 'build/guide/minitable/minitable.html',
+        dep: 'guide',
+        due: '2016.11.18',
+        check: 'done',
+        comp: 'angularjs, directive'
+    }, {
+        name: 'Information Chart',
+        link: 'build/guide/inforChart/inforchart.html',
+        dep: 'guide',
+        due: '2016.11.18',
+        check: 'done',
+        comp: 'angularjs, directive'
+    }, {
         name: 'Dashboard',
         link: 'build/',
         dep: 'index',
         due: '2016.11.11',
-        check: 'ready',
+        check: 'progress',
         comp: 'angularjs, nvD3, grid'
     }, {
         name: 'Rule',
         link: 'build/#/Rule',
-        dep: 'sub',
+        dep: 'rule',
         due: '2016.11.11',
-        check: 'ready',
+        check: 'backlog',
         comp: 'angularjs, nvD3, grid'
     }, {
         name: 'Alert',
         link: 'build/#/Alert',
-        dep: 'sub',
+        dep: 'alert',
         due: '2016.11.11',
-        check: 'ready',
+        check: 'backlog',
         comp: 'angularjs, nvD3, grid'
     }, {
         name: 'Search',
         link: 'build/#/Search',
-        dep: 'sub',
+        dep: 'search',
         due: '2016.11.11',
-        check: 'ready',
+        check: 'backlog',
         comp: 'angularjs, nvD3, grid'
     }, {
         name: 'member',
         link: 'build/#/member',
-        dep: 'sub',
+        dep: 'member',
         due: '2016.11.11',
-        check: 'progress',
+        check: 'backlog',
         comp: 'angularjs, nvD3, grid'
     }, {
         name: 'admin',
         link: 'build/#/admin',
         dep: 'admin',
         due: '2016.11.11',
-        check: 'done',
+        check: 'backlog',
         comp: 'angularjs, nvD3, grid'
     }]
 };
@@ -117,8 +145,21 @@ var dataMenu = {
 
 
 
-var guideComp = idBind('guideComp'), indexComp = idBind('indexComp'), subComp = idBind('subComp'), adminComp = idBind('adminComp'), guideContainer = idBind('guideContainer');
-var guildeEle = [], indexEle = [], subEle = [], adminEle = [];
+var guideComp = idBind('guideComp'),
+    indexComp = idBind('indexComp'),
+    adminComp = idBind('adminComp'),
+    ruleComp = idBind('ruleComp'),
+    alertComp = idBind('alertComp'),
+    searchComp = idBind('searchComp'),
+    memberComp = idBind('memberComp'),
+    guideContainer = idBind('guideContainer');
+var guildeEle = [],
+    indexEle = [],
+    adminEle = [],
+    ruleEle = [],
+    alertEle = [],
+    searchEle = [],
+    memberEle = [];
 
 
 function idBind(id) {
@@ -129,15 +170,52 @@ for(var i=0;i < dataMenu.menuList.length;i++) {
     switch (dataMenu.menuList[i].dep) {
         case 'guide' : guildeEle.push(dataMenu.menuList[i]); break;
         case 'index' : indexEle.push(dataMenu.menuList[i]); break;
-        case 'sub' : subEle.push(dataMenu.menuList[i]); break;
+        case 'rule' : ruleEle.push(dataMenu.menuList[i]); break;
+        case 'alert' : alertEle.push(dataMenu.menuList[i]); break;
+        case 'search' : searchEle.push(dataMenu.menuList[i]); break;
+        case 'member' : memberEle.push(dataMenu.menuList[i]); break;
         case 'admin' : adminEle.push(dataMenu.menuList[i]); break;
         default : guildeEle.push(dataMenu.menuList[i]); break;
     }
 }
 
+memberEle.map(function(element, index){
+    memberComp.insertAdjacentHTML('beforeend',
+        '<div class="guideCard">' +
+        '<div class="check"><span class="'+ element.check +'">'+ element.check +'</span></div>' +
+        '<div class="name"><a href='+ element.link +' target=_blank>'+ element.name +'</a><div class="due">'+ element.due +'</div></div>' +
+        '<div class="comp">'+ element.comp +'</div>' +
+        '</div>');
+});
+
+searchEle.map(function(element, index){
+    searchComp.insertAdjacentHTML('beforeend',
+        '<div class="guideCard">' +
+        '<div class="check"><span class="'+ element.check +'">'+ element.check +'</span></div>' +
+        '<div class="name"><a href='+ element.link +' target=_blank>'+ element.name +'</a><div class="due">'+ element.due +'</div></div>' +
+        '<div class="comp">'+ element.comp +'</div>' +
+        '</div>');
+});
+
+alertEle.map(function(element, index){
+    alertComp.insertAdjacentHTML('beforeend',
+        '<div class="guideCard">' +
+        '<div class="check"><span class="'+ element.check +'">'+ element.check +'</span></div>' +
+        '<div class="name"><a href='+ element.link +' target=_blank>'+ element.name +'</a><div class="due">'+ element.due +'</div></div>' +
+        '<div class="comp">'+ element.comp +'</div>' +
+        '</div>');
+});
+
+ruleEle.map(function(element, index){
+    ruleComp.insertAdjacentHTML('beforeend',
+        '<div class="guideCard">' +
+        '<div class="check"><span class="'+ element.check +'">'+ element.check +'</span></div>' +
+        '<div class="name"><a href='+ element.link +' target=_blank>'+ element.name +'</a><div class="due">'+ element.due +'</div></div>' +
+        '<div class="comp">'+ element.comp +'</div>' +
+        '</div>');
+});
 
 guildeEle.map(function(element, index){
-
     guideComp.insertAdjacentHTML('beforeend',
         '<div class="guideCard">' +
         '<div class="check"><span class="'+ element.check +'">'+ element.check +'</span></div>' +
@@ -148,15 +226,6 @@ guildeEle.map(function(element, index){
 
 indexEle.map(function(element, index){
     indexComp.insertAdjacentHTML('beforeend',
-        '<div class="guideCard">' +
-        '<div class="check"><span class="'+ element.check +'">'+ element.check +'</span></div>' +
-        '<div class="name"><a href='+ element.link +' target=_blank>'+ element.name +'</a><div class="due">'+ element.due +'</div></div>' +
-        '<div class="comp">'+ element.comp +'</div>' +
-        '</div>');
-});
-
-subEle.map(function(element, index){
-    subComp.insertAdjacentHTML('beforeend',
         '<div class="guideCard">' +
         '<div class="check"><span class="'+ element.check +'">'+ element.check +'</span></div>' +
         '<div class="name"><a href='+ element.link +' target=_blank>'+ element.name +'</a><div class="due">'+ element.due +'</div></div>' +

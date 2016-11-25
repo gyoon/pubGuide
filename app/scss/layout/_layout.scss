@@ -1,0 +1,44 @@
+.containerGnb {
+  background-color: #1e90e5;
+  width: 180px;
+  height:100%;
+  h1 {
+    height: 50px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    background-color: #0e4194;
+    color: #fff;
+  }
+  nav {
+    ul {
+      display: flex;
+      align-content: center;
+      align-items: flex-start;
+      justify-content: center;
+      flex-direction: column;
+      li {
+        display: block;
+        width: 100%;
+        a {
+          padding: 22px 24px;
+          display: block;
+          color: #fff;
+          &:hover, &.active {
+            background-color: #1486db;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+.includeLayout {
+  height:100%
+}
+
+.containerContents {
+  width: 100%;
+}

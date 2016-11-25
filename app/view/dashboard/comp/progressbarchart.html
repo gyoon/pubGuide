@@ -1,0 +1,60 @@
+<div ng-controller="progressbarChartCtrl">
+
+    <div class="progressbarchart">
+
+        <div class="chartItem">
+            <h2>정상분석파일 TOP 5</h2>
+            <div ng-repeat="item in data">
+                <progress-chart-directive
+                        type="analysis"
+                        data="item"
+                        ng-class="anicheck ? 'anion' : 'anioff'">
+                </progress-chart-directive>
+            </div>
+        </div>
+
+        <div class="chartItem">
+            <h2>악성 파일 TOP 5</h2>
+            <div ng-repeat="item in data">
+                <progress-chart-directive
+                        type="files"
+                        data="item"
+                        ng-class="anicheck ? 'anion' : 'anioff'">
+                </progress-chart-directive>
+            </div>
+        </div>
+
+        <div class="chartItem">
+            <h2>유포지 TOP 5</h2>
+            <div ng-repeat="item in data">
+                <progress-chart-directive
+                        type="area" data="item"
+                        ng-class="anicheck ? 'anion' : 'anioff'">
+                </progress-chart-directive>
+            </div>
+        </div>
+
+        <div class="chartItem">
+            <h2>경유지 TOP 5</h2>
+            <div ng-repeat="item in data">
+                <progress-chart-directive
+                        type="pass"
+                        data="item"
+                        ng-class="anicheck ? 'anion' : 'anioff'">
+                </progress-chart-directive>
+            </div>
+        </div>
+
+        <div class="chartItem">
+            <h2>C&C TOP 5</h2>
+            <div ng-repeat="item in data">
+                <progress-chart-directive
+                        type="cnc"
+                        data="item"
+                        ng-class="anicheck ? 'anion' : 'anioff'">
+                </progress-chart-directive>
+            </div>
+        </div>
+
+    </div>
+</div>

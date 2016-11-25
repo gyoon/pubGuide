@@ -9,7 +9,7 @@ var app = angular.module('pieChartApp', ['nvd3'])
             x: function(d){return d.key;},
             y: function(d){return d.y;},
             showLabels: false,
-            duration: 500,
+            duration: 350,
             useInteractiveGuideline: true,
             labelThreshold: 0.01,
             labelSunbeamLayout: false,

@@ -1,0 +1,44 @@
+.appBody {
+  height:100%;
+}
+
+.containerIndex {
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  height:100%;
+}
+
+.includeInforchart {}
+
+.includeLinechart {
+  position: relative;
+  &:before {
+    position: absolute;
+    top:0;
+    left:0;
+    content: '';
+    display: block;
+    width: calc(100% - 180px);
+    height: 100%;
+    background-color: #e2f2fc;
+    z-index: -1;
+  }
+  &:after {
+    position: absolute;
+    top:0;
+    right:0;
+    content: '';
+    display: block;
+    width: calc(100% - (100% - 180px));
+    height: 100%;
+    background: linear-gradient(-45deg, #eef8ff, #fff);
+    z-index: -1;
+  }
+  padding-bottom: 10px;
+}
+
+.includeProgressbarchart {
+
+}
+

@@ -31,6 +31,7 @@ gulp.task('vendor', [ 'clean' ], function() {
     var fontFilter = filter([ 'bower_components/**/*.eot', 'bower_components/**/*.svg', 'bower_components/**/*.ttf', 'bower_components/**/*.woff', 'bower_components/**/*.woff2' ], {restore: true});
     gulp
         .src([
+            'bower_components/bootstrap-daterangepicker/daterangepicker.css',
             'bower_components/angular-bootstrap/ui-bootstrap-csp.css',
             'bower_components/bootstrap/dist/css/bootstrap.min.css',
             'bower_components/angular-ui-select/dist/select.min.css',
@@ -112,7 +113,7 @@ gulp.task('dev', ['resource', 'html', 'javascript', 'vendor', 'scss', 'lib'], fu
         server: './build'
     });
 
-    gulp.watch('app/scss/*.scss', ['scss']);
+    gulp.watch('app/scss/**/*.scss', ['scss']);
     gulp.watch('app/**/*.html', ['html-watch']);
     gulp.watch('app/**/*.html').on('change', reload);
 });
