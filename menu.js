@@ -35,12 +35,26 @@ var dataMenu = {
         check: 'backlog',
         comp: 'angularjs, bootstrap'
     }, {
+        name: 'angular-bootstrap-toggle-switch',
+        link: 'build/guide/angular-bootstrap-toggle-switch/switch.html',
+        dep: 'guide',
+        due: '2016.11.18',
+        check: 'done',
+        comp: 'angularjs, angular-bootstrap-toggle-switch'
+    }, {
         name: 'UI Select',
         link: 'build/guide/uiSelect/uiSelect.html',
         dep: 'guide',
         due: '2016.11.18',
         check: 'backlog',
         comp: 'angularjs, ui-select'
+    }, {
+        name: 'angular Chosen',
+        link: 'build/guide/angularchosen/angularchosen.html',
+        dep: 'guide',
+        due: '2016.11.18',
+        check: 'done',
+        comp: 'angularjs, angular-chosen'
     }, {
         name: 'Datepicker',
         link: 'build/guide/datepicker/datepicker.html',
@@ -98,6 +112,34 @@ var dataMenu = {
         check: 'done',
         comp: 'angularjs, directive'
     }, {
+        name: 'Popover',
+        link: 'build/guide/popover/popover.html',
+        dep: 'guide',
+        due: '2016.11.18',
+        check: 'done',
+        comp: 'angularjs, angular-bootstrap'
+    }, {
+        name: 'Alert',
+        link: 'build/guide/alert/alert.html',
+        dep: 'guide',
+        due: '2016.11.18',
+        check: 'done',
+        comp: 'angularjs, angular-bootstrap'
+    }, {
+        name: 'ngTagsInput',
+        link: 'build/guide/ng-tags-input/ngTagsInput.html',
+        dep: 'guide',
+        due: '2016.11.18',
+        check: 'done',
+        comp: 'angularjs, ngTagsInput'
+    }, {
+        name: 'Tabs',
+        link: 'build/guide/tabs/tabs.html',
+        dep: 'guide',
+        due: '2016.11.18',
+        check: 'done',
+        comp: 'angularjs, angular-bootstrap'
+    }, {
         name: 'Dashboard',
         link: 'build/',
         dep: 'index',
@@ -105,12 +147,19 @@ var dataMenu = {
         check: 'progress',
         comp: 'angularjs, nvD3, grid'
     }, {
-        name: 'Rule',
+        name: 'Rule List',
         link: 'build/#/Rule',
         dep: 'rule',
         due: '2016.11.11',
         check: 'backlog',
-        comp: 'angularjs, nvD3, grid'
+        comp: 'angularjs'
+    }, {
+        name: 'Rule Add',
+        link: 'build/#/RuleAdd',
+        dep: 'rule',
+        due: '2016.11.11',
+        check: 'backlog',
+        comp: 'angularjs'
     }, {
         name: 'Alert',
         link: 'build/#/Alert',

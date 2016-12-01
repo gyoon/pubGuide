@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>KDB</title>
+    <link rel="stylesheet" href="../../scss/vendor.css" />
+    <link rel="stylesheet" href="../../scss/app.css" />
+</head>
+<body>
+
+<div ng-app="angularchosenApp" ng-controller="angularchosenCtrl" class="guide">
+
+    <h2>angular Chosen</h2>
+
+    <select
+            class="chosn"
+            chosen multiple
+            ng-model="state"
+            ng-options="s.id as s.title for s in states">
+        <option value=""></option>
+    </select>
+
+</div>
+
+<script src="../../lib/jquery/dist/jquery.min.js"></script>
+<script src="../../lib/angular/angular.min.js"></script>
+
+<script src="../../lib/chosen/chosen.jquery.js"></script>
+<script src="../../lib/angular-chosen-localytics/dist/angular-chosen.min.js"></script>
+
+<!--controller-->
+<script src="angularchosen.controller.js"></script>
+
+</body>
+</html>

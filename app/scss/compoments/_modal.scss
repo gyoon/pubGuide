@@ -1,0 +1,27 @@
+.modal {
+  .isClick {
+    cursor: pointer;
+  }
+  .modal-header {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    .modal-title {
+      flex: 0 0 100%;
+    }
+    .isClick {
+      flex: 0 0 20px;
+      right: 10px;
+    }
+  }
+  .modal-footer {
+    .fileDetail {
+      text-align: center;
+      .btn {
+        &:nth-of-type(3) {
+          float: right;
+        }
+      }
+    }
+  }
+}

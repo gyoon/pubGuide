@@ -42,3 +42,13 @@
 .containerContents {
   width: 100%;
 }
+
+.includeFooter {
+  position: fixed;
+  width: calc(100% - 180px);
+  bottom: 0;
+}
+
+.includeContents {
+
+}

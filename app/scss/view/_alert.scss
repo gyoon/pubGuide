@@ -1,0 +1,17 @@
+.alertList {
+  .isClick {
+    cursor: pointer;
+  }
+  .dataTable{
+    tbody {
+      tr {
+        td {
+          &:nth-of-type(2) {
+            word-wrap: break-word;
+            word-break:break-all;
+          }
+        }
+      }
+    }
+  }
+}

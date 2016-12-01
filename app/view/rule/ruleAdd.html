@@ -1,0 +1,160 @@
+<div ng-controller="ruleAddCtrl" class="pageContainer ruleAdd">
+
+    <div class="pageHeader">
+        <h2>규칙 생성</h2>
+    </div>
+
+    <div class="listView">
+
+        <dl class="items">
+            <dt class="title">
+                규칙명
+            </dt>
+            <dd class="contents">
+                <input type="text" class="form-control" placeholder="규칙명">
+                <span class="error">규칙명을 입력해주세요.</span>
+            </dd>
+        </dl>
+
+        <dl class="items">
+            <dt class="title">
+                활성화
+            </dt>
+            <dd class="contents">
+                <toggle-switch  class="switch-mini" ng-model="model1"></toggle-switch>
+            </dd>
+        </dl>
+
+        <dl class="items">
+            <dt class="title">
+                담당자
+            </dt>
+            <dd class="contents">
+                <select chosen multiple
+                        ng-model="state"
+                        placeholder-text-single="'담당자'"
+                        ng-options="s.id as s.title for s in states05" disable-search="true">
+                    <option value=""></option>
+                </select>
+                <span class="error">담당자를 입력해주세요.</span>
+            </dd>
+        </dl>
+
+        <dl class="items">
+            <dt class="title">
+                설명
+            </dt>
+            <dd class="contents">
+                <textarea rows="3" class="form-control" placeholder="설명"></textarea>
+            </dd>
+        </dl>
+
+        <dl class="items">
+            <dt class="title">
+                규칙 설정
+            </dt>
+            <dd class="contents">
+                <button class="btn btn-primary" ng-click="modeToggleButton()" type="button">모드전환</button>
+                <div class="flip-container vertical" ng-class="{'active': isModeToggle}">
+                    <div class="ruleSet flipper">
+                        <div class="front">
+                            <div class="guiMode">
+                            <div class="modeItems exset">
+                                <div class="modeset">
+                                    <select chosen
+                                            ng-model="state"
+                                            placeholder-text-single="'데이터 출처 선택'"
+                                            ng-options="s.id as s.title for s in states01" disable-search="true">
+                                        <option value=""></option>
+                                    </select>
+
+                                    <select chosen
+                                            ng-model="state"
+                                            placeholder-text-single="'필드 선택'"
+                                            ng-options="s.id as s.title for s in states02" disable-search="true">
+                                        <option value=""></option>
+                                    </select>
+
+                                    <select chosen
+                                            ng-model="state"
+                                            placeholder-text-single="'='"
+                                            ng-options="s.id as s.title for s in states03" disable-search="true">
+                                    </select>
+                                    <input type="text" class="form-control" placeholder="담당자">
+                                </div>
+                                <div class="modedelete"></div>
+                            </div>
+                            <div class="modeItems" ng-repeat="itemToAdd in itemsToAdd">
+                                <div class="modeset">
+
+                                    <select chosen
+                                            ng-model="state"
+                                            ng-options="s.id as s.title for s in states04" disable-search="true">
+                                        <option value=""></option>
+                                    </select>
+
+                                    <select chosen
+                                            ng-model="state"
+                                            placeholder-text-single="'데이터 출처 선택'"
+                                            ng-options="s.id as s.title for s in states01" disable-search="true">
+                                        <option value=""></option>
+                                    </select>
+
+                                    <select chosen
+                                            ng-model="state"
+                                            placeholder-text-single="'필드 선택'"
+                                            placeholder-text-single="'Choose Your Own Adventure'"
+                                            ng-options="s.id as s.title for s in states02" disable-search="true">
+                                    </select>
+
+                                    <select chosen
+                                            ng-model="state"
+                                            placeholder-text-single="'='"
+                                            placeholder-text-single="'Choose Your Own Adventure'"
+                                            ng-options="s.id as s.title for s in states03" disable-search="true">
+                                    </select>
+                                    <input type="text" class="form-control" placeholder="담당자">
+                                </div>
+                                <div class="modedelete">
+                                    <span ng-click="add(itemToAdd)" class="isClick glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                            <div class="modeItems"></div>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    조건 추가
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="javascript:;" ng-click="addNew()">AND</a></li>
+                                    <li><a href="javascript:;" ng-click="addNew()">OR</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                            <span class="error">규칙을 설정해주세요.</span>
+                        </div>
+                        <div class="back">
+                            <div class="climode">cli 모드</div>
+                            <span class="error">쿼리에 오류가 있습니다. 쿼리 확인 후 다시 시도해주세요.
+                                <span class="isClick"><span ng-click="vm.cancel()" class="glyphicon glyphicon-repeat" aria-hidden="true"></span> 되돌리기</span>
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+
+            </dd>
+        </dl>
+
+        <div class="listViewBtngroup">
+            <button class="btn btn-primary">저장</button>
+            <button class="btn btn-primary">취소</button>
+        </div>
+
+    </div>
+</div>
+
+
+<script type="text/ng-template" id="guiModeAdd.html">
+    <div ng-transclude></div>
+</script>

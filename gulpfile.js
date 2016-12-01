@@ -3,7 +3,6 @@ var gulp = require ('gulp'),
     clean = require('gulp-clean'),
     concat = require('gulp-concat'),
     filter = require('gulp-filter'),
-    flatten = require('gulp-flatten'),
     browserSync = require ('browser-sync'),
     reload = browserSync.reload;
 
@@ -31,11 +30,14 @@ gulp.task('vendor', [ 'clean' ], function() {
     var fontFilter = filter([ 'bower_components/**/*.eot', 'bower_components/**/*.svg', 'bower_components/**/*.ttf', 'bower_components/**/*.woff', 'bower_components/**/*.woff2' ], {restore: true});
     gulp
         .src([
+            'bower_components/angular-bootstrap-toggle-switch/style/bootstrap3/angular-toggle-switch-bootstrap-3.css',
+            'bower_components/chosen/chosen.css',
             'bower_components/bootstrap-daterangepicker/daterangepicker.css',
             'bower_components/angular-bootstrap/ui-bootstrap-csp.css',
             'bower_components/bootstrap/dist/css/bootstrap.min.css',
             'bower_components/angular-ui-select/dist/select.min.css',
             'bower_components/angular-datatables/dist/css/angular-datatables.css',
+            'bower_components/ng-tags-input/ng-tags-input.min.css',
             'bower_components/nvd3/build/nv.d3.min.css',
             'bower_components/nvd3/build/nv.d3.min.css.map'])
         .pipe(concat('vendor.css'))
@@ -62,24 +64,7 @@ gulp.task('html', [ 'clean' ], function() {
     gulp
         .src(target.main + target.htmlSrc)
         .pipe(gulp.dest(target.dest))
-});
-
-gulp.task('html-w', function() {
-    gulp
-        .src(target.main + target.htmlSrc)
-        .pipe(gulp.dest(target.dest))
-});
-
-gulp.task('resource-w', function() {
-    gulp
-        .src(target.main + target.resourceSrc)
-        .pipe(gulp.dest(target.dest +'resource'));
-});
-
-
-gulp.task('html-watch', ['html-w', 'resource-w'], function (done) {
-    reload
-    done();
+        .pipe(reload({stream:true}));
 });
 
 gulp.task('lib', [ 'clean' ], function() {
@@ -91,13 +76,16 @@ gulp.task('lib', [ 'clean' ], function() {
 gulp.task('javascript', [ 'clean' ], function() {
     gulp
         .src(target.main + target.jsSrc)
-        .pipe(gulp.dest(target.dest + '/view'));
+        .pipe(gulp.dest(target.dest + '/view'))
+        .pipe(reload({stream:true}));
     gulp
         .src(target.main + target.indexJsSrc)
-        .pipe(gulp.dest(target.dest));
+        .pipe(gulp.dest(target.dest))
+        .pipe(reload({stream:true}));
     gulp
         .src(target.main + target.guideJsSrc)
-        .pipe(gulp.dest(target.dest + '/guide'));
+        .pipe(gulp.dest(target.dest + '/guide'))
+        .pipe(reload({stream:true}));
 });
 
 
@@ -114,8 +102,11 @@ gulp.task('dev', ['resource', 'html', 'javascript', 'vendor', 'scss', 'lib'], fu
     });
 
     gulp.watch('app/scss/**/*.scss', ['scss']);
-    gulp.watch('app/**/*.html', ['html-watch']);
-    gulp.watch('app/**/*.html').on('change', reload);
+    gulp.watch('app/**/*.js', ['javascript']);
+    gulp.watch('app/**/*.html', ['html']);
+
+    gulp.watch('build/**/*.html').on('change', reload);
+
 });
 
 gulp.task('build', ['resource', 'html', 'javascript', 'vendor', 'scss', 'lib'], function(){

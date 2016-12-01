@@ -8,9 +8,7 @@
     <link rel="stylesheet" href="scss/app.css" />
 </head>
 <body>
-
 <div ng-app="kdbApp" ng-controller="indexCtrl" class="appBody">
-
     <div class="containerIndex">
         <div ng-include="'view/layout/layout.html'" class="includeLayout"></div>
         <div class="containerContents">
@@ -35,6 +33,11 @@
 <!--datatables-->
 <script src="lib/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="lib/angular-datatables/dist/angular-datatables.min.js"></script>
+<script src="lib/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="lib/angular-datatables/dist/plugins/buttons/angular-datatables.buttons.min.js"></script>
+
+<!--bootstrap ui-->
+<script src="lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>`
 
 <!--bootstrap-->
 <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -42,14 +45,20 @@
 <!--ui-select-->
 <script src="lib/angular-ui-select/dist/select.min.js"></script>
 
-<!--bootstrap ui-->
-<script src="lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<!--chosen-->
+<script src="lib/chosen/chosen.jquery.js"></script>
+<script src="lib/angular-chosen-localytics/dist/angular-chosen.min.js"></script>
 
 <!--bootstrap daterangepicker-->
 <script src="lib/moment/moment.js"></script>
 <script src="lib/bootstrap-daterangepicker/daterangepicker.js"></script>
 <script src="lib/angular-daterangepicker/js/angular-daterangepicker.min.js"></script>
 
+<!--angular-bootstrap-toggle-switch-->
+<script src="lib/angular-bootstrap-toggle-switch/angular-toggle-switch.min.js"></script>
+
+<!--ng-tag-input-->
+<script src="lib/ng-tags-input/ng-tags-input.min.js"></script>
 
 <!--controller-->
 <script src="index.controller.js"></script>
@@ -62,8 +71,10 @@
 <script src="view/dashboard/comp/lineChart.controller.js"></script>
 <script src="view/dashboard/comp/progressbarchart.controller.js"></script>
 
+<script src="view/rule/ruleList.controller.js"></script>
+<script src="view/rule/ruleAdd.controller.js"></script>
+
 <script src="view/alert/alert.controller.js"></script>
-<script src="view/rule/rule.controller.js"></script>
 <script src="view/search/search.controller.js"></script>
 </body>
 </html>

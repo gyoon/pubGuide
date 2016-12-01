@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>KDB</title>
+    <link rel="stylesheet" href="../../scss/vendor.css" />
+    <link rel="stylesheet" href="../../scss/app.css" />
+</head>
+<body>
+
+<div ng-app="tabsApp" ng-controller="tabsCtrl" class="guide">
+
+    <h2>Tabs</h2>
+
+    <uib-tabset active="activeJustified" justified="true">
+        <uib-tab index="0" heading="Justified">Justified content</uib-tab>
+        <uib-tab index="1" heading="SJ">Short Labeled Justified content</uib-tab>
+        <uib-tab index="2" heading="Long Justified">Long Labeled Justified content</uib-tab>
+    </uib-tabset>
+
+
+</div>
+
+<script src="../../lib/jquery/dist/jquery.min.js"></script>
+<script src="../../lib/angular/angular.min.js"></script>
+
+<!--bootstrap ui-->
+<script src="../../lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+<!--controller-->
+<script src="tabs.controller.js"></script>
+
+</body>
+</html>

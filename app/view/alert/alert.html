@@ -1,3 +1,42 @@
-<div ng-controller="alertCtrl">
-    alert
+<div ng-controller="alertCtrl as vm" class="pageContainer alertList">
+
+    <div class="pageHeader">
+        <h2>알람</h2>
+        <button class="btn btn-primary">새로고침</button>
+    </div>
+
+    <div class="pageFilter">
+        <div class="date-picker">
+            <input date-range-picker class="form-control" options="opts" type="text" ng-model="date" />
+        </div>
+        <input type="text" class="form-control searchField" ng-model="vm.query" />
+        <button ng-click="vm.search(vm.query, vm.dtInstance)">
+            Search
+        </button>
+    </div>
+
+    <table datatable dt-options="vm.dtOptions" dt-columns="vm.dtColumns" dt-instance="vm.dtInstance" class="row-border hover"></table>
+
+    <script type="text/ng-template" id="modaldelete.html">
+        <div class="modal-header">
+            <h3 class="modal-title" id="modal-title">삭제</h3>
+            <span ng-click="vm.cancel()" class="isClick glyphicon glyphicon-remove" aria-hidden="true"></span>
+        </div>
+        <div class="modal-body" id="modal-body">
+            선택한 파일을 삭제하시겠습니까?
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="vm.ok()">OK</button>
+            <button class="btn btn-warning" type="button" ng-click="vm.cancel()">Cancel</button>
+        </div>
+    </script>
+
+    <div uib-alert ng-repeat="alert in alerts" class="alertContainer alert-warning" ng-class="anicheck ? 'anion' : 'anioff'" close="closeAlert($index)">{{alert.msg}}</div>
+
+    <script type="text/ng-template" id="alert.html">
+        <div ng-transclude></div>
+    </script>
+
+
+
 </div>

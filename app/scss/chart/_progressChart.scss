@@ -1,9 +1,81 @@
-.progressChart {
+
+/*
+ * global
+ */
+
+$name    : '.kdb-progressChart';
+
+$i: 0;
+$progressChart-color: #80c1f0, #e1bce5, #a2d4f8, #c2e257, #abe8c9;
+
+$progressChart-layout-padding: 12px 0;
+
+$progressChart-title-width: 50px;
+$progressChart-title-size: 10px;
+$progressChart-title-padding: 12px 0;
+$progressChart-title-color: #596879;
+
+$progressChart-value-width: 30px;
+$progressChart-value-font-size: 10px;
+$progressChart-value-padding: 0 10px 0 0;
+$progressChart-value-color: #596879;
+$progressChart-value-align: center;
+
+$progressChart-prchart-width: calc(100% - 80px);
+$progressChart-prchart-margin: 0 0 0 0;
+$progressChart-prchart-height: 8px;
+$progressChart-prchart-background: #e5e5e5;
+$progressChart-prchart-radious: 8px;
+$progressChart-prchart-shadow: none;
+
+$progressChart-transition: .6s cubic-bezier(.4,.38,0,1.19);
+  /*
+   * Build
+   */
+
+@mixin layout {
   display: flex;
   align-items: center;
   align-content: center;
-  padding: 12px 0;
+  padding: $progressChart-layout-padding;
+}
 
+@mixin title {
+  width: $progressChart-title-width;
+  flex-shrink: 0;
+  font-size: $progressChart-title-size;
+  color: $progressChart-title-color;
+  padding: $progressChart-title-padding;
+  @include text-overflow;
+}
+
+@mixin value {
+  width: $progressChart-value-width;
+  flex-shrink: 0;
+  padding: $progressChart-value-padding;
+  font-size: $progressChart-value-font-size;
+  color: $progressChart-value-color;
+  text-align: $progressChart-value-align;
+}
+
+@mixin prChart {
+  width: $progressChart-prchart-width;
+  flex-shrink: 0;
+  margin: $progressChart-prchart-margin;
+  height: $progressChart-prchart-height;
+  box-shadow: $progressChart-prchart-shadow;
+  background-color: $progressChart-prchart-background;
+  border-radius: $progressChart-prchart-radious;
+}
+
+@mixin progress-bar {
+  height: 100%;
+  box-shadow: $progressChart-prchart-shadow;
+  border-radius: $progressChart-prchart-radious;
+  transition: $progressChart-transition;
+}
+
+@mixin anion {
   &.anioff {
     opacity:1;
     .progress-bar {width:0!important;}
@@ -12,67 +84,37 @@
     opacity:1;
     .progress-bar {width:auto;}
   }
-  &[type = 'analysis'] { .progress-bar {background-color: #80c1f0;} }
-  &[type = 'files'] { .progress-bar {background-color: #e1bce5;} }
-  &[type = 'area'] { .progress-bar {background-color: #a2d4f8;} }
-  &[type = 'pass'] { .progress-bar {background-color: #c2e257;} }
-  &[type = 'cnc'] { .progress-bar {background-color: #abe8c9;} }
-  .prChart {
-    width: calc(100% - 80px);
-    flex-shrink: 0;
-    margin-bottom:0;
-    height: 8px;
-    box-shadow: none;
-    background-color: #e5e5e5;
-    border-radius: 8px;
-    .progress-bar {
-      height: 100%;
-      box-shadow: none;
-      border-radius: 8px;
-      transition: .6s cubic-bezier(.4,.38,0,1.19);
+}
+
+@mixin animation {
+  &[type = 'analysis'] { .progress-bar {background-color: nth($progressChart-color, 1)} }
+  &[type = 'files'] { .progress-bar {background-color: nth($progressChart-color, 2)} }
+  &[type = 'area'] { .progress-bar {background-color: nth($progressChart-color, 3)} }
+  &[type = 'pass'] { .progress-bar {background-color: nth($progressChart-color, 4)} }
+  &[type = 'cnc'] { .progress-bar {background-color: nth($progressChart-color, 5)} }
+}
+
+/*
+ * Init
+ */
+@mixin kdb-progressChart($selector: $name) {
+  #{$selector} {
+    @include layout;
+    @include animation;
+    @include anion;
+    .title {
+      @include title;
     }
-  }
-  .title {
-    width: 50px;
-    flex-shrink: 0;
-    font-size:10px;
-    color:#596879;
-    padding-right: 10px;
-    text-overflow:ellipsis;
-    white-space:nowrap;
-    word-wrap:normal;
-    overflow: hidden;
-  }
-  .value {
-    width: 30px;
-    flex-shrink: 0;
-    padding-left: 10px;
-    font-size:10px;
-    color:#596879;
-    text-align: center;
+    .prChart {
+      @include prChart;
+      .progress-bar {
+        @include progress-bar;
+      }
+    }
+    .value {
+      @include value;
+    }
   }
 }
 
-.progressbarchart {
-  display: flex;
-  align-items: center;
-  align-content: center;
-  .chartItem {
-    h2 {
-      color:#596879;
-      font-size: 14px;
-      padding-top: 20px;
-      padding-bottom: 15px;
-    }
-    background: linear-gradient(-45deg, #eef8ff, #fff);
-    padding: 0 16px 20px 16px;
-    width: 20%;
-    box-sizing: border-box;
-    border-top: 1px #c6d7e5 solid;
-    border-bottom: 1px #c6d7e5 solid;
-    border-right: 1px #c6d7e5 solid;
-    &:first-of-type {
-      border-left: 1px #c6d7e5 solid;
-    }
-  }
-}
+@include kdb-progressChart;

@@ -19,6 +19,7 @@ var app = angular.module('pieChartApp', ['nvd3'])
                 return (d.data && d.data.color) || colors[i % colors.length]
             },
             legend: {
+                updateState: false,
                 margin: {
                     top:40
                 },

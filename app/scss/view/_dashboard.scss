@@ -42,3 +42,27 @@
 
 }
 
+
+.progressbarchart {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  .chartItem {
+    h2 {
+      color:#596879;
+      font-size: 14px;
+      padding-top: 20px;
+      padding-bottom: 15px;
+    }
+    background: linear-gradient(-45deg, #eef8ff, #fff);
+    padding: 0 16px 20px 16px;
+    width: 20%;
+    box-sizing: border-box;
+    border-top: 1px #c6d7e5 solid;
+    border-bottom: 1px #c6d7e5 solid;
+    border-right: 1px #c6d7e5 solid;
+    &:first-of-type {
+      border-left: 1px #c6d7e5 solid;
+    }
+  }
+}

@@ -40,7 +40,7 @@ app
         },
         link: function (scope, element, attribute) {
         },
-        template: '<div class="progressChart">' +
+        template: '<div class="kdb-progressChart">' +
         '<div class="title">{{item.key}}</div>' +
         '<div class="prChart">' +
         '<div class="progress-bar" style="width:{{item.y}}%"></div>' +

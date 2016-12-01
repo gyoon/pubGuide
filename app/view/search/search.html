@@ -1,3 +1,299 @@
-<div ng-controller="searchCtrl">
-    search
+<div ng-controller="searchCtrl as vm" class="pageContainer searchList">
+
+    <div class="pageHeader">
+        <h2>검색</h2>
+    </div>
+
+    <div class="pageFilter">
+        <input type="text" class="form-control searchField" ng-model="vm.query" />
+        <div class="btn-group">
+            <button type="button" class="btn btn-default" ng-click="vm.search(vm.query, vm.dtInstance)">
+                검색
+            </button>
+            <button type="button" class="btn btn-default dropdown-toggle detailSearch"
+                    uib-popover-template="searchTemplate.templateUrl" data-toggle="popover" popover-toggle="searchTemplate.isOpen" popover-placement="bottom">
+                싱세검색
+                <span class="caret"></span>
+            </button>
+        </div>
+        <div class="btn-group">
+            <button type="button" class="btn btn-default"
+                    uib-popover-template="filterTemplate.templateUrl" data-toggle="popover" popover-toggle="filterTemplate.isOpen" popover-placement="bottom-left">
+                내 필터 목록
+            </button>
+            <button type="button" class="btn btn-default">
+                필터 가져오기
+            </button>
+        </div>
+    </div>
+
+    <div class="pageTag">
+        <tag-list
+                ng-repeat="tags in tagdata"
+                tagdata="tags"
+                ng-class="anicheck ? 'anion' : 'anioff'">
+        </tag-list>
+        <span class="isClick filterSave" ng-class="anicheck ? 'anion' : 'anioff'">필터로 저장</span>
+    </div>
+
+    <table datatable dt-options="vm.dtOptions" dt-columns="vm.dtColumns" dt-instance="vm.dtInstance" class="row-border hover"></table>
+
+    <script type="text/ng-template" id="searchTemplate.html">
+        <div class="filterListPopover">
+            <div class="titlePopover">
+                <h3 class="title">상세검색</h3>
+                <span closebtn class="isClick glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </div>
+            <div class="listView">
+                <dl class="items">
+                    <dt class="title">
+                        키워드
+                    </dt>
+                    <dd class="contents">
+                        <tags-input
+                                ng-model="keyword"
+                                placeholder="키워드를 입력하세요">
+                        </tags-input>
+                    </dd>
+                </dl>
+                <dl class="items">
+                    <dt class="title">
+                        기간
+                    </dt>
+                    <dd class="contents">
+                        <div class="date-picker">
+                            <input date-range-picker class="form-control" options="opts" type="text" ng-model="date" />
+                        </div>
+                    </dd>
+                </dl>
+                <dl class="items">
+                    <dt class="title">
+                        고객사
+                    </dt>
+                    <dd class="contents">
+                        <select chosen multiple
+                                ng-model="state"
+                                placeholder-text-multiple="'고객사를 선택하세요'"
+                                ng-options="s.id as s.title for s in states01">
+                            <option value=""></option>
+                        </select>
+                    </dd>
+                </dl>
+                <dl class="items">
+                    <dt class="title">
+                        파일명
+                    </dt>
+                    <dd class="contents">
+                        <tags-input
+                                ng-model="filename"
+                                placeholder="파일명을 입력하세요">
+                        </tags-input>
+                    </dd>
+                </dl>
+                <dl class="items">
+                    <dt class="title">
+                        파일사이즈
+                    </dt>
+                    <dd class="contents">
+                        <div class="fileSize">
+                            <input type="text" class="form-control">
+                            <select chosen disable-search="true">
+                                <option value="KB">KB</option>
+                                <option value="M">M</option>
+                            </select>
+                            <span class="dash">~</span>
+                            <input type="text" class="form-control">
+                            <select chosen disable-search="true">
+                                <option value="KB">KB</option>
+                                <option value="M">M</option>
+                            </select>
+                        </div>
+                    </dd>
+                </dl>
+                <dl class="items">
+                    <dt class="title">
+                        파일타입
+                    </dt>
+                    <dd class="contents">
+                        <div class="formCheckboxGroup">
+                            <div class="formCheckbox">
+                                <label for="pdf"><input id="pdf" type="checkbox"> pdf</label>
+                            </div>
+                            <div class="formCheckbox">
+                                <label for="jpg"><input id="jpg" type="checkbox"> jpg</label>
+                            </div>
+                            <div class="formCheckbox">
+                                <label for="txt"><input id="txt" type="checkbox"> txt</label>
+                            </div>
+                            <div class="formCheckbox">
+                                <label for="pdf"><input id="docx" type="checkbox"> docx</label>
+                            </div>
+                            <div class="formCheckbox">
+                                <label for="tt"><input id="tt" type="checkbox"> 확장자</label>
+                            </div>
+                        </div>
+                    </dd>
+                </dl>
+                <dl class="items">
+                    <dt class="title">
+                        다운로드 유입건수
+                    </dt>
+                    <dd class="contents">
+                        <div class="miniTextbox">
+                            <input type="text" class="form-control"> 이상
+                        </div>
+                    </dd>
+                </dl>
+                <dl class="items">
+                    <dt class="title">
+                        sandbox 탐지여부
+                    </dt>
+                    <dd class="contents">
+                        <div class="miniTextbox">
+                            <input type="text" class="form-control"> 이상
+                        </div>
+                        <div class="formSwitchGroup">
+                            <div class="formSwitchbox">
+                                FIREEVE MAS
+                                <toggle-switch  class="switch-mini" ng-model="model1"></toggle-switch>
+                            </div>
+                            <div class="formSwitchbox">
+                                Ahnlab TW
+                                <toggle-switch  class="switch-mini" ng-model="model1"></toggle-switch>
+                            </div>
+                            <div class="formSwitchbox">
+                                SECUI MBAS
+                                <toggle-switch  class="switch-mini" ng-model="model1"></toggle-switch>
+                            </div>
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+            <div class="btnGroup">
+                <button class="btn btn-primary" ng-click="vm.modalSave('lg')">필터로 저장</button>
+                <button class="btn btn-primary" ng-click="vm.modalSearch('sm')">검색</button>
+                <span class="isClick">입력내용 초기화</span>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/ng-template" id="filterTemplate.html">
+        <div class="filterListPopover">
+            <div class="titlePopover">
+                <h3 class="title">내 필터 목록</h3>
+                <span closebtn class="isClick glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </div>
+            <div class="contentsPopover">최대 20개 필터를 저장가능하며 초과 시, 오래된 순으로 삭제합니다.</div>
+            <div class="btnGroup">
+                <button class="btn btn-primary">전체 필터 내보내기</button>
+            </div>
+            <div class="filterList">
+                <ul>
+                    <li ng-repeat="item in filterData">
+                        <span class="filterValue">{{item.filterValue}}</span>
+                        <span closebtn class="isClick glyphicon glyphicon-save-file" aria-hidden="true"></span>
+                        <span closebtn class="isClick glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/ng-template" id="modaldelete.html">
+        <div class="modal-header">
+            <h3 class="modal-title">필터로 저장</h3>
+            <span ng-click="vm.cancel()" class="isClick glyphicon glyphicon-remove" aria-hidden="true"></span>
+        </div>
+        <div class="modal-body">
+            <div class="listView">
+                <dl class="items">
+                    <dt class="title">
+                        필터명
+                    </dt>
+                    <dd class="contents">
+                        <input type="text" class="form-control" placeholder="규칙명">
+                        <span class="error">같은 이름의 필터가 있습니다.</span>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="vm.save()">저장</button>
+            <button class="btn btn-warning" type="button" ng-click="vm.cancel()">취소</button>
+        </div>
+    </script>
+
+    <script type="text/ng-template" id="modalsearch.html">
+        <div class="modal-header">
+            <h3 class="modal-title">검색어 입력</h3>
+            <span ng-click="vm.cancel()" class="isClick glyphicon glyphicon-remove" aria-hidden="true"></span>
+        </div>
+        <div class="modal-body">
+            검색어를 입력해주세요.
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="vm.ok()">확인</button>
+        </div>
+    </script>
+
+    <script type="text/ng-template" id="modalDetail.html">
+        <div class="modal-header">
+            <h3 class="modal-title">파일상세</h3>
+            <span ng-click="vm.cancel()" class="isClick glyphicon glyphicon-remove" aria-hidden="true"></span>
+        </div>
+        <div class="modal-body">
+
+            <uib-tabset active="activeJustified" justified="true" class="tabs">
+                <uib-tab index="0" heading="Identification">
+                    <div class="listView">
+                        <dl class="items">
+                            <dt class="title">
+                                MD5
+                            </dt>
+                            <dd class="contents">
+                                090978070asdf70970sdf0sd760s9d7gs09dg70
+                            </dd>
+                        </dl>
+                        <dl class="items">
+                            <dt class="title">
+                                SH-1
+                            </dt>
+                            <dd class="contents">
+                                090978070asdf70970sdf0sd760s9d7gs09dg70
+                            </dd>
+                        </dl>
+                        <dl class="items">
+                            <dt class="title">
+                                Type
+                            </dt>
+                            <dd class="contents">
+                                <span class="label label-warning isClick ng-binding">tag</span>
+                            </dd>
+                        </dl>
+                    </div>
+
+                </uib-tab>
+                <uib-tab index="1" heading="tab2">tab2</uib-tab>
+                <uib-tab index="2" heading="tab3">tab3</uib-tab>
+                <uib-tab index="3" heading="tab4">tab4</uib-tab>
+                <uib-tab index="4" heading="tab5">tab5</uib-tab>
+                <uib-tab index="5" heading="tab6">tab6</uib-tab>
+                <uib-tab index="6" heading="tab7">tab7</uib-tab>
+            </uib-tabset>
+        </div>
+        <div class="modal-footer">
+            <div class="btnGroup fileDetail">
+                <button class="btn btn-primary">파일 다운로드</button>
+                <button class="btn btn-primary">파일 리스캔</button>
+                <button class="btn btn-primary" ng-click="vm.cancel()">닫기</button>
+            </div>
+        </div>
+    </script>
+
+    <div uib-alert ng-repeat="alert in alerts" class="alertContainer alert-warning" ng-class="anicheck ? 'anion' : 'anioff'" close="closeAlert($index)">{{alert.msg}}</div>
+
+    <script type="text/ng-template" id="alert.html">
+        <div ng-transclude></div>
+    </script>
+
 </div>

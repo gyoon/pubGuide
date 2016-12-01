@@ -1,14 +1,23 @@
-.lineChart {
-  .nv-area ~ .nv-line {
-    display: none;
-  }
+
+/*
+ * global
+ */
+
+$name    : '.kdb-lineChart';
+
+/*
+ * Build
+ */
+
+@mixin layout {
   .nv-series {
-    &:nth-of-type(1) {transform:translate(430px,150px)!important;}
-    &:nth-of-type(2) {transform:translate(430px,180px)!important;}
-    &:nth-of-type(3) {transform:translate(430px,210px)!important;}
-    &:nth-of-type(4) {transform:translate(430px,240px)!important;}
-    &:nth-of-type(5) {transform:translate(430px,270px)!important;}
+    &:nth-of-type(1) {transform:translate(430px,80px)!important;}
+    &:nth-of-type(2) {transform:translate(430px,110px)!important;}
+    &:nth-of-type(3) {transform:translate(430px,140px)!important;}
+    &:nth-of-type(4) {transform:translate(430px,170px)!important;}
+    &:nth-of-type(5) {transform:translate(430px,200px)!important;}
   }
+  .nv-reset {transform:translate(496px, 224px) !important; cursor: pointer}
   .nv-x {
     g.tick {
       line {
@@ -30,6 +39,47 @@
     }
   }
   .nv-group {
-    stroke-opacity: .6!important;
+    stroke-opacity: .9!important;
+    &.nv-series-0 {
+      .nv-area {transition: .6s cubic-bezier(.4,.38,0,1.19);opacity:0;transform: scale(1.3, 1.3);}
+      &.area {
+        .nv-area {opacity:1;transform: scale(1, 1);}
+      }
+    }
+    &.nv-series-1 {
+      .nv-area {transition: .6s cubic-bezier(.4,.38,0,1.19);opacity:0;transform: scale(1.3, 1.3);}
+      &.area {
+        .nv-area {opacity:1;transform: scale(1, 1);}
+      }
+    }
+    &.nv-series-2 {
+      .nv-area {transition: .6s cubic-bezier(.4,.38,0,1.19);opacity:0;transform: scale(1.3, 1.3);}
+      &.area {
+        .nv-area {opacity:1;transform: scale(1, 1);}
+      }
+    }
+    &.nv-series-3 {
+      .nv-area {transition: .6s cubic-bezier(.4,.38,0,1.19);opacity:0;transform: scale(1.3, 1.3);}
+      &.area {
+        .nv-area {opacity:1;transform: scale(1, 1);}
+      }
+    }
+    &.nv-series-4 {
+      .nv-area {transition: .6s cubic-bezier(.4,.38,0,1.19);opacity:0;transform: scale(1.3, 1.3);}
+      &.area {
+        .nv-area {opacity:1;transform: scale(1, 1);}
+      }
+    }
   }
 }
+
+/*
+ * Init
+ */
+@mixin kdb-lineChart($selector: $name) {
+  #{$selector} {
+    @include layout;
+  }
+}
+
+@include kdb-lineChart;

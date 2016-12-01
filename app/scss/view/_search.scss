@@ -1,0 +1,128 @@
+.searchList {
+  .isClick {
+    cursor: pointer;
+  }
+  .popover {
+    max-width: inherit;
+    margin-left: 8px;
+    width:420px;
+    z-index: 1030;
+    .filterListPopover {
+      .titlePopover {
+        display: flex;
+        align-items: center;
+        align-content: center;
+        justify-content: space-between;
+        .title {
+          font-size: 16px;
+          font-weight: bold;
+        }
+      }
+      .contentsPopover {
+        padding: 20px 0;
+      }
+      .btnGroup {
+        text-align: right;
+      }
+      .filterList {
+        margin-top: 10px;
+        border: 1px #e3e3e3 solid;
+        padding: 10px;
+        max-height: 366px;
+        overflow: auto;
+        ul {
+          li {
+            display: flex;
+            align-content: center;
+            align-items: center;
+            padding: 6px 0;
+            cursor: pointer;
+            .filterValue {
+              width: calc(100% - 40px);
+            }
+            .isClick {
+              transition: .6s cubic-bezier(.4,.38,0,1.19);
+              opacity: 0;
+              flex: 0 0 20px;
+              margin-right: 20px;
+            }
+            &:hover {
+              .isClick {
+                opacity: 1;
+                display: block;
+                margin-right: 0px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .detailSearch ~ .popover {
+    width:760px;
+    .listView .items .title {
+      flex: 0 0 130px;
+      padding: 12px 10px;
+    }
+    .listView .items .contents {
+      width: calc(100% - 130px);
+      padding: 10px;
+    }
+    .chosen-container-multi {
+      width: 100% !important;
+    }
+    .fileSize {
+      display: flex;
+      align-items: center;
+      align-content: center;
+      .dash {padding: 0 4px;}
+      .form-control {
+        width: 100px;
+        margin-right: 10px;
+      }
+      .chosen-container {
+        min-width: 80px;
+      }
+    }
+    .miniTextbox {
+      display: flex;
+      align-items: center;
+      align-content: center;
+      .form-control {
+        width: 60px;
+        margin-right: 10px;
+      }
+    }
+    .formSwitchGroup {
+      margin-top: 10px;
+      .switch-mini {
+        margin-left: 10px;
+      }
+    }
+    .btnGroup {
+      margin-top: 10px;
+      text-align: center;
+      .isClick {text-decoration: underline}
+      .btn {
+        &:nth-of-type(1) {
+          float: left;
+        }
+        &:nth-of-type(2) {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+  .dataTable{
+    tbody {
+      tr {
+        td {
+          &:nth-of-type(1) {
+            word-wrap: break-word;
+            word-break:break-all;
+          }
+        }
+      }
+    }
+  }
+}

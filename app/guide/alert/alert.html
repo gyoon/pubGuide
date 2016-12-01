@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>KDB</title>
+    <link rel="stylesheet" href="../../scss/vendor.css" />
+    <link rel="stylesheet" href="../../scss/app.css" />
+</head>
+<body>
+
+<div ng-app="alertApp" ng-controller="alertCtrl" class="guide">
+
+    <h2>Alert</h2>
+
+    <script type="text/ng-template" id="alert.html">
+        <div ng-transclude></div>
+    </script>
+
+    <div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')" close="closeAlert($index)">{{alert.msg}}</div>
+    <div uib-alert template-url="alert.html" style="background-color:#fa39c3;color:white">A happy alert!</div>
+    <button type="button" class='btn btn-default' ng-click="addAlert()">Add Alert</button>
+
+</div>
+
+<script src="../../lib/jquery/dist/jquery.min.js"></script>
+<script src="../../lib/angular/angular.min.js"></script>
+
+<!--bootstrap ui-->
+<script src="../../lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+<!--controller-->
+<script src="alert.controller.js"></script>
+
+</body>
+</html>

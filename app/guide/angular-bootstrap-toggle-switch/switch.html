@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>KDB</title>
+    <link rel="stylesheet" href="../../scss/vendor.css" />
+    <link rel="stylesheet" href="../../scss/app.css" />
+</head>
+<body>
+
+<div ng-app="switchApp" ng-controller="switchCtrl" class="guide">
+
+    <h2>angular-bootstrap-toggle-switch</h2>
+
+    <p>
+        <div toggle-switch class="switch-large switch-primary" ng-model="switchStatus1"></div>
+        <div toggle-switch class="switch-primary" ng-model="switchStatus2"></div>
+        <div toggle-switch class="switch-small switch-primary" ng-model="switchStatus3"></div>
+        <div toggle-switch class="switch-mini switch-primary" ng-model="switchStatus4"></div>
+    </p>
+
+</div>
+
+<script src="../../lib/jquery/dist/jquery.min.js"></script>
+<script src="../../lib/angular/angular.min.js"></script>
+<script src="../../lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!--angular-bootstrap-toggle-switch-->
+<script src="../../lib/angular-bootstrap-toggle-switch/angular-toggle-switch.min.js"></script>
+
+<!--controller-->
+<script src="switch.controller.js"></script>
+
+</body>
+</html>

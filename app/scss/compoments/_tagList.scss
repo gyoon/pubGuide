@@ -1,0 +1,52 @@
+.kdb-tagList {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #fff;
+  margin: 5px;
+  font-size: 12px;
+  transform: translate(40px, 0px);
+  transition: .6s cubic-bezier(.4,.38,0,1.19);
+  opacity: 0;
+  &.remove {
+    animation: tagsRemove .7s cubic-bezier(.4,.38,0,1.19);
+  }
+  &.anion {
+    transform: translate(0px, 0px);
+    opacity: 1;
+  }
+  .title {
+    &:after {
+      content: '|';
+      padding: 0 10px;
+      display: inline-block;
+    }
+  }
+  .value {
+    padding-right: 20px;
+  }
+  .isClick {
+
+  }
+}
+
+.filterSave {
+  font-size: 12px;
+  text-decoration: underline;
+  margin: 5px 0 0 10px;
+  transform: translate(40px, 0px);
+  transition: .6s cubic-bezier(.4,.38,0,1.19);
+  opacity: 0;
+  &.anion {
+    transform: translate(0px, 0px);
+    opacity: 1;
+  }
+}
+
+@keyframes tagsRemove {
+  0%   {transform: translate(0px, 0px);}
+  20%  {transform: translate(0px, -10px);}
+  100% {transform: translate(0px, 100px);opacity: 0}
+}

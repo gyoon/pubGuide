@@ -1,0 +1,84 @@
+.listView {
+  .items {
+    display: flex;
+    align-content: center;
+    border-bottom: 1px #e3e3e3 solid;
+    .title {
+      flex: 0 0 100px;
+      padding: 12px 10px;
+    }
+    .contents {
+      width: calc(100% - 100px);
+      padding: 10px;
+      .error {
+        color: #ff0000;
+        display: block;
+        padding: 8px 0 0 0;
+        font-size: 11px;
+      }
+    }
+  }
+  .listViewBtngroup {
+    margin-top: 20px;
+    display: block;
+    text-align: center;
+  }
+
+
+
+  .ruleSet {
+    .guiMode {
+      padding: 10px 10px 100px 10px;
+      min-height: 300px;
+      overflow: auto;
+      border: 1px #e3e3e3 solid;
+      .btn-group {
+        margin-top: 10px;
+      }
+      .modeItems {
+        margin: 5px 0;
+        background: #eee;
+        padding: 6px 6px;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        .chosen-container .chosen-results {
+          max-height: 150px;
+          overflow: auto;
+        }
+        &:empty {
+          margin: 0;
+          padding: 0;
+          background: transparent;
+        }
+        &.exset {
+          .modeset {
+            margin-left: 100px;
+          }
+        }
+        .modeset {
+          display: flex;
+          align-items: center;
+          align-content: center;
+          padding: 0 5px;
+          width: calc(100% - 20px);
+          .chosen-container {
+            min-width: inherit;
+            margin-right: 10px;
+          }
+        }
+        .modedelete {
+          min-width: inherit;
+          max-width: inherit;
+          flex: 0 0 0 20px;
+        }
+      }
+    }
+    .climode {
+      padding: 10px;
+      min-height: 300px;
+      overflow: auto;
+      border: 1px #e3e3e3 solid;
+    }
+  }
+}

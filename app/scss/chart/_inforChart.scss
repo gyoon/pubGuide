@@ -1,64 +1,114 @@
-.inforchart {
+
+/*
+ * global
+ */
+
+$name    : '.kdb-inforChart';
+
+$i: 0;
+$inforChart-translate: translate(10px, 0px), translate(15px, 0px), translate(20px, 0px), translate(25px, 0px), translate(30px, 0px), translate(35px, 0px);
+$inforChart-translate-min: translate(0px, 0px);
+
+$inforChart-item-border: 1px #c6d7e5 solid;
+$inforChart-item-height: 108px;
+$inforChart-item-background: #f3faff;
+$inforChart-item-transition: .6s cubic-bezier(.4,.38,0,1.19);
+
+$inforChart-item-title-color: #596879;
+$inforChart-item-title-size: 12px;
+$inforChart-item-title-align: center;
+$inforChart-item-title-margin: 0 0 5px 0;
+
+$inforChart-item-value-align: bold;
+$inforChart-item-value-margin: 5px 0 0 0;
+
+/*
+ * Build
+ */
+
+@mixin layout {
   display: flex;
   align-items: center;
   align-content: center;
   width: 100%;
-  .item {
-    width: 100%;
-    min-height:108px;
-    background: #f3faff;
-    border-top: 1px #c6d7e5 solid;
-    border-bottom: 1px #c6d7e5 solid;
-    border-right: 1px #c6d7e5 solid;
-    display: flex;
-    align-content: center;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    &:nth-of-type(1){
-      .title, .value {transform: translate(10px, 0px);}
-    }
-    &:nth-of-type(2){
-      .title, .value {transform: translate(15px, 0px);}
-    }
-    &:nth-of-type(3){
-      .title, .value {transform: translate(20px, 0px);}
-    }
-    &:nth-of-type(4){
-      .title, .value {transform: translate(25px, 0px);}
-    }
-    &:nth-of-type(5){
-      .title, .value {transform: translate(30px, 0px);}
-    }
-    &:nth-of-type(6){
-      .title, .value {transform: translate(35px, 0px);}
-    }
-    &.anion {
-      .title {
-        transform: translate(0px, 0px);
-      }
-      .value {
-        transform: translate(0px, 0px);
-      }
-    }
+}
 
-    &:first-of-type {
-      border-left: 1px #c6d7e5 solid;
-    }
+@mixin item {
+  width: 100%;
+  min-height: $inforChart-item-height;
+  background: $inforChart-item-background;
+  border-top: $inforChart-item-border;
+  border-bottom: $inforChart-item-border;
+  border-right: $inforChart-item-border;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  &:first-of-type {
+    border-left: $inforChart-item-border;
+  }
+}
+
+@mixin title {
+  color: $inforChart-item-title-color;
+  font-size: $inforChart-item-title-size;
+  text-align:$inforChart-item-title-align;
+  margin: $inforChart-item-title-margin;
+  transition: $inforChart-item-transition;
+}
+
+@mixin value {
+  color: #596879;
+  font-size: $inforChart-item-title-size;
+  text-align:$inforChart-item-title-align;
+  margin: $inforChart-item-value-margin;
+  transition: $inforChart-item-transition;
+  span {font-weight: $inforChart-item-value-align}
+}
+
+/*
+ * Options
+ */
+
+@mixin anion {
+  &.anion {
     .title {
-      color: #596879;
-      font-size: 12px;
-      text-align:center;
-      margin-bottom: 5px;
-      transition: .6s cubic-bezier(.4,.38,0,1.19);
+      transform: $inforChart-translate-min;
     }
     .value {
-      color: #596879;
-      font-size: 12px;
-      text-align:center;
-      margin-top: 5px;
-      transition: .6s cubic-bezier(.4,.38,0,1.19);
-      span {font-weight: bold}
+      transform: $inforChart-translate-min;
     }
   }
 }
+
+@mixin animation {
+  @each $currentTtranslate in $inforChart-translate {
+    $i: index($inforChart-translate, $currentTtranslate);
+    &:nth-of-type(#{$i}) {
+      .title, .value {transform: $currentTtranslate;}
+    }
+  }
+}
+
+/*
+ * Init
+ */
+@mixin kdb-inforChart($selector: $name) {
+  #{$selector} {
+    @include layout;
+    .item {
+      @include item;
+      @include animation;
+      @include anion;
+      .title {
+        @include title;
+      }
+      .value {
+        @include value;
+      }
+    }
+  }
+}
+
+@include kdb-inforChart;

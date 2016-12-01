@@ -1,0 +1,14 @@
+@mixin breakpoints($selector) {
+  #{$selector} {
+    @content;
+  }
+}
+
+
+@mixin text-overflow {
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  word-wrap:normal;
+  overflow: hidden;
+}
+

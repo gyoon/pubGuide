@@ -7,6 +7,7 @@ var app = angular.module('lineChartApp', ['nvd3'])
             type: 'lineChart',
             height: 240,
             strokeWidth: 0,
+            isArea: true,
             disabled: false,
             margin : {
                 top: 0,
@@ -27,41 +28,29 @@ var app = angular.module('lineChartApp', ['nvd3'])
                 return (d.data && d.data.color) || colors[i % colors.length]
             },
             legend: {
+                updateState: false,
                 margin: {
                     top:0,
                     right:0
                 },
                 dispatch: {
                     legendClick: function(e, i){
-                        if (e.area){
-                            e.area = false;
-                            linkHover();
-                        } else {
-                            e.area = true;
-                            linkDefault();
-                        }
+
+                        angular.element(".nv-group").removeClass("area");
+                        var seriesNum = ".nv-series-" + i
+
+                        $timeout(function() {
+                            angular.element(seriesNum).addClass("area");
+                        }, 100);
 
                         $timeout(function() {
                             e.disabled = (e.disabled) ? false : false;
                         }, 10);
 
-                        function linkDefault(){
-                            d3.selectAll(".nv-legend .nv-series:nth-of-type(" + (i + 1) + ") rect")
-                                .attr("style",function(d, i) {
-                                    return "width:18px;height:18px;transform:translate(-9px,-9px);" + d3.selectAll(".nv-series:nth-of-type(" + (i + 1) + ") circle").attr('style') + "fill-opacity:0;stroke:#999"
-                                });
-                        }
-
-                        function linkHover(){
-                            d3.selectAll(".nv-legend .nv-series:nth-of-type(" + (i + 1) + ") rect")
-                                .attr("style",function() {
-                                    return "width:18px;height:18px;transform:translate(-9px,-9px);" + d3.selectAll(".nv-series:nth-of-type(" + (i + 1) + ") circle").attr('style') + "fill-opacity:.3;"
-                                });
-                        }
-
-
                     },
                     legendDblclick: function(e, i){
+
+
                     }
                 }
             },
@@ -126,36 +115,24 @@ var app = angular.module('lineChartApp', ['nvd3'])
         ];
     };
 
-
-
     $scope.legendReset = function() {
 
-        var rectangle = d3.selectAll(".nv-legend g.nv-series");
+        var resetBtn = d3.selectAll(".nv-legend").select("g");
 
-        rectangle.append("rect")
-            .attr("style","width:10px;height:10px")
-            .attr("style",function(d, i) {
-                return "width:18px;height:18px;transform:translate(-9px,-9px);"
-                    + d3.selectAll(".nv-series:nth-of-type(" + (i + 1) + ") circle").attr('style') + "fill-opacity:.3;"
-            });
+        resetBtn
+            .append("g")
+            .attr("transform","translate(0,0)")
+            .append("text")
+            .attr("text-anchor","start")
+            .attr("class","nv-reset")
+            .attr("dy",".32em")
+            .attr("dx","8")
+            .attr("fill","#000")
+            .text ('초기화');
 
-
-
-        /*    .attr("text-anchor","middle")
-            .attr("transform","translate(" + (textTranslate + 30) + ",10)")
-            .attr("class","chartValue")
-            .attr("style","font-weight:bold;fill:#596879")
-            .text ('회사명');*/
-
-        var series = d3.selectAll(".nv-series");
-        series.attr("transform",
-            function(d, i) {
-                return "translate(400,"+ (i + 5) * 30 +")";
-            }
-        )
-        var legendText = d3.selectAll(".nv-legend-text");
-        legendText.attr("transform","translate(8,0)");
-
+        $( ".nv-reset" ).click(function() {
+            angular.element(".nv-group").removeClass("area");
+        });
     };
 
     $timeout(function() {
@@ -167,5 +144,6 @@ var app = angular.module('lineChartApp', ['nvd3'])
             $scope.legendReset();
         }, 10);
     }
+
 
 });

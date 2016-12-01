@@ -1,0 +1,16 @@
+.alertContainer {
+  position: absolute;
+  width: 600px;
+  top: -30px;
+  left: 50%;
+  margin-left: -300px;
+  transition: .6s cubic-bezier(.4,.38,0,1.19);
+  &.anioff {
+    opacity:0;
+    top: -30px;
+  }
+  &.anion {
+    opacity:1;
+    top: 90px;
+  }
+}

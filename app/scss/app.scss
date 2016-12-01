@@ -2,15 +2,33 @@
 
 @import "guide/_guide";
 
+@import "util/_util";
+
 @import "chart/_pieChart";
 @import "chart/_lineChart";
 @import "chart/_progressChart";
 @import "chart/_inforChart";
 
 @import "compoments/_miniTables";
+@import "compoments/_chosen";
+@import "compoments/_datatables";
+@import "compoments/_modal";
+@import "compoments/_alert";
+@import "compoments/_listView";
+@import "compoments/_fliper";
+@import "compoments/_daterangepicker";
+@import "compoments/_checkbox";
+@import "compoments/_switch";
+@import "compoments/_tagList";
+@import "compoments/_tabs";
 
 @import "layout/_layout";
 @import "layout/_header";
 @import "layout/_footer";
 @import "layout/_container";
-@import "layout/_dashboard";
+@import "layout/_page";
+
+@import "view/_dashboard";
+@import "view/_rule";
+@import "view/_alert";
+@import "view/_search";

@@ -1,4 +1,15 @@
-.pieChart {
+
+/*
+ * global
+ */
+
+$name    : '.kdb-pieChart';
+
+/*
+ * Build
+ */
+
+@mixin layout {
   .nv-slice {
     path {
       stroke-width: 0px;
@@ -15,3 +26,14 @@
     &:nth-of-type(5) {transform:translate(0,120px)!important;}
   }
 }
+
+/*
+ * Init
+ */
+@mixin kdb-pieChart($selector: $name) {
+  #{$selector} {
+    @include layout;
+  }
+}
+
+@include kdb-pieChart;

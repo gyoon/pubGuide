@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>KDB</title>
+    <link rel="stylesheet" href="../../scss/vendor.css" />
+    <link rel="stylesheet" href="../../scss/app.css" />
+</head>
+<body>
+
+<div ng-app="popoverApp" ng-controller="popoverCtrl" class="guide">
+
+    <h2>Popover</h2>
+
+    <button style="float:right" uib-popover-template="dynamicPopover.templateUrl" popover-placement="bottom-right" popover-title="{{dynamicPopover.title}}" type="button" class="btn btn-default">Popover With Template</button>
+
+    <script type="text/ng-template" id="myPopoverTemplate.html">
+        <div style="width: 600px"></div>
+        <div>{{dynamicPopover.content}}</div>
+    </script>
+
+</div>
+
+<script src="../../lib/jquery/dist/jquery.min.js"></script>
+<script src="../../lib/angular/angular.min.js"></script>
+
+<!--bootstrap ui-->
+<script src="../../lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+<!--controller-->
+<script src="popover.controller.js"></script>
+
+</body>
+</html>
