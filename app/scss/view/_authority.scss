@@ -17,7 +17,7 @@
     padding: 10px;
 
     .groupList {
-      height: 100%;
+      height: calc(100% - 90px);
       background: #e3e3e3;
     }
   }
