@@ -140,50 +140,78 @@ var dataMenu = {
         check: 'done',
         comp: 'angularjs, angular-bootstrap'
     }, {
-        name: 'Dashboard',
+        name: '대쉬보드',
         link: 'build/',
         dep: 'index',
         due: '2016.11.11',
         check: 'progress',
         comp: 'angularjs, nvD3, grid'
     }, {
-        name: 'Rule List',
+        name: '로그인 화면',
+        link: 'build/#/Login',
+        dep: 'index',
+        due: '2016.11.11',
+        check: 'done',
+        comp: 'angularjs'
+    }, {
+        name: '로그아웃 화면',
+        link: 'build/#/Logout',
+        dep: 'index',
+        due: '2016.11.11',
+        check: 'done',
+        comp: 'angularjs'
+    }, {
+        name: '규칙',
         link: 'build/#/Rule',
         dep: 'rule',
         due: '2016.11.11',
         check: 'backlog',
         comp: 'angularjs'
     }, {
-        name: 'Rule Add',
+        name: '규칙 생성',
         link: 'build/#/RuleAdd',
         dep: 'rule',
         due: '2016.11.11',
         check: 'backlog',
         comp: 'angularjs'
     }, {
-        name: 'Alert',
+        name: '알람',
         link: 'build/#/Alert',
         dep: 'alert',
         due: '2016.11.11',
         check: 'backlog',
         comp: 'angularjs, nvD3, grid'
     }, {
-        name: 'Search',
+        name: '검색',
         link: 'build/#/Search',
         dep: 'search',
         due: '2016.11.11',
         check: 'backlog',
         comp: 'angularjs, nvD3, grid'
     }, {
-        name: 'member',
-        link: 'build/#/member',
-        dep: 'member',
+        name: '사용자 관리',
+        link: 'build/#/Admin/user',
+        dep: 'admin',
         due: '2016.11.11',
         check: 'backlog',
         comp: 'angularjs, nvD3, grid'
-    }, {
-        name: 'admin',
-        link: 'build/#/admin',
+    },{
+        name: '권한 관리',
+        link: 'build/#/Admin/authority',
+        dep: 'admin',
+        due: '2016.11.11',
+        check: 'backlog',
+        comp: 'angularjs, nvD3, grid'
+    },{
+        name: '감사 로그',
+        link: 'build/#/Admin/auditLog',
+        dep: 'admin',
+        due: '2016.11.11',
+        check: 'backlog',
+        comp: 'angularjs, nvD3, grid'
+    },{
+        name: '모니터링',
+        link: 'build/#/Admin/monitoring',
         dep: 'admin',
         due: '2016.11.11',
         check: 'backlog',
@@ -200,15 +228,13 @@ var guideComp = idBind('guideComp'),
     ruleComp = idBind('ruleComp'),
     alertComp = idBind('alertComp'),
     searchComp = idBind('searchComp'),
-    memberComp = idBind('memberComp'),
     guideContainer = idBind('guideContainer');
 var guildeEle = [],
     indexEle = [],
     adminEle = [],
     ruleEle = [],
     alertEle = [],
-    searchEle = [],
-    memberEle = [];
+    searchEle = []
 
 
 function idBind(id) {
@@ -222,20 +248,10 @@ for(var i=0;i < dataMenu.menuList.length;i++) {
         case 'rule' : ruleEle.push(dataMenu.menuList[i]); break;
         case 'alert' : alertEle.push(dataMenu.menuList[i]); break;
         case 'search' : searchEle.push(dataMenu.menuList[i]); break;
-        case 'member' : memberEle.push(dataMenu.menuList[i]); break;
         case 'admin' : adminEle.push(dataMenu.menuList[i]); break;
         default : guildeEle.push(dataMenu.menuList[i]); break;
     }
 }
-
-memberEle.map(function(element, index){
-    memberComp.insertAdjacentHTML('beforeend',
-        '<div class="guideCard">' +
-        '<div class="check"><span class="'+ element.check +'">'+ element.check +'</span></div>' +
-        '<div class="name"><a href='+ element.link +' target=_blank>'+ element.name +'</a><div class="due">'+ element.due +'</div></div>' +
-        '<div class="comp">'+ element.comp +'</div>' +
-        '</div>');
-});
 
 searchEle.map(function(element, index){
     searchComp.insertAdjacentHTML('beforeend',

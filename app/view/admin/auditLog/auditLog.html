@@ -1,0 +1,50 @@
+<div ng-controller="auditLogCtrl as vm" class="pageContainer userList">
+
+    <div class="pageHeader">
+        <h2>사용자 관리</h2>
+    </div>
+
+    <div class="pageFilter">
+        <input type="text" ng-model="vm.query" />
+        <button ng-click="vm.search(vm.query, vm.dtInstance)">
+            Search
+        </button>
+    </div>
+
+    <table datatable dt-options="vm.dtOptions" dt-columns="vm.dtColumns" dt-instance="vm.dtInstance" class="row-border hover"></table>
+
+    <script type="text/ng-template" id="ruleTemplate.html">
+        <div class="ruleListPopover">
+            <div class="editor">{{ruleTemplate.content}}</div>
+            <div class="btnGroup">
+                <span closebtn class="isClick glyphicon glyphicon-remove" aria-hidden="true"></span>
+                <button class="btn btn-primary">수정</button>
+                <button class="btn btn-primary">삭제</button>
+                <button class="btn btn-primary">내보내기</button>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/ng-template" id="modaldelete.html">
+        <div class="modal-header">
+            <h3 class="modal-title" id="modal-title">삭제</h3>
+            <span ng-click="vm.cancel()" class="isClick glyphicon glyphicon-remove" aria-hidden="true"></span>
+        </div>
+        <div class="modal-body" id="modal-body">
+            선택한 규칙을 삭제하시겠습니까?
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="vm.ok()">OK</button>
+            <button class="btn btn-warning" type="button" ng-click="vm.cancel()">Cancel</button>
+        </div>
+    </script>
+
+    <div uib-alert ng-repeat="alert in alerts" class="alertContainer alert-warning" ng-class="anicheck ? 'anion' : 'anioff'" close="closeAlert($index)">{{alert.msg}}</div>
+
+    <script type="text/ng-template" id="alert.html">
+        <div ng-transclude></div>
+    </script>
+
+
+
+</div>

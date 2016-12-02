@@ -1,11 +1,20 @@
 <div ng-controller="layoutCtrl" class="containerGnb">
     <h1>kdb</h1>
     <nav>
-        <ul>
-            <li><a href="#Dashboard" class="active">dashboard</a></li>
-            <li><a href="#Rule">Rule</a></li>
-            <li><a href="#Alert">Alert</a></li>
-            <li><a href="#Search">Search</a></li>
+        <ul class="menu">
+            <li><a href="#Dashboard" class="active">대쉬보드</a></li>
+            <li><a href="#Rule">규칙</a></li>
+            <li><a href="#Alert">알람</a></li>
+            <li><a href="#Search">검색</a></li>
+            <li class="btn-group">
+                <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">관리자 <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#Admin/user">사용자 관리</a></li>
+                    <li><a href="javascript:;">권한 관리</a></li>
+                    <li><a href="javascript:;">감사로그</a></li>
+                    <li><a href="javascript:;">모니터링</a></li>
+                </ul>
+            </li>
         </ul>
     </nav>
 </div>

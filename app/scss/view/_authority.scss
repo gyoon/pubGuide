@@ -1,0 +1,28 @@
+.authority {
+  height: 100%;
+  .glyphicon {
+    padding: 0 5px;
+  }
+}
+
+
+.authorityContainer {
+  display: flex;
+  align-content: center;
+  align-items: flex-start;
+  height: 100%;
+  .authorityGroup {
+    flex: 0 0 300px;
+    height: 100%;
+    padding: 10px;
+
+    .groupList {
+      height: 100%;
+      background: #e3e3e3;
+    }
+  }
+  .authorityDetail {
+    width: calc(100% - 300px);
+    padding: 10px;
+  }
+}

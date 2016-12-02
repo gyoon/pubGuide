@@ -13,7 +13,7 @@
         <div ng-include="'view/layout/layout.html'" class="includeLayout"></div>
         <div class="containerContents">
             <div ng-include="'view/layout/header.html'" class="includeHeader"></div>
-            <ng-view></ng-view>
+            <ng-view class="includeBody"></ng-view>
             <div ng-include="'view/layout/footer.html'" class="includeFooter"></div>
         </div>
     </div>
@@ -66,6 +66,9 @@
 <script src="view/layout/layout.controller.js"></script>
 <script src="view/layout/header.controller.js"></script>
 
+<script src="view/index/login.controller.js"></script>
+<script src="view/index/logout.controller.js"></script>
+
 <script src="view/dashboard/dashboard.controller.js"></script>
 <script src="view/dashboard/comp/inforchart.controller.js"></script>
 <script src="view/dashboard/comp/lineChart.controller.js"></script>
@@ -75,6 +78,13 @@
 <script src="view/rule/ruleAdd.controller.js"></script>
 
 <script src="view/alert/alert.controller.js"></script>
+
 <script src="view/search/search.controller.js"></script>
+
+<script src="view/admin/user/user.controller.js"></script>
+<script src="view/admin/authority/authority.controller.js"></script>
+<script src="view/admin/auditLog/auditLog.controller.js"></script>
+<script src="view/admin/monitoring/monitoring.controller.js"></script>
+
 </body>
 </html>
