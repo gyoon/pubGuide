@@ -8,6 +8,7 @@
     "build": "gulp build"
   },
   "dependencies": {
+    "bower": "^1.8.0",
     "browser-sync": "^2.18.2",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",

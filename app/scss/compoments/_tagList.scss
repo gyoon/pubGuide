@@ -1,52 +1,99 @@
-.kdb-tagList {
+
+/*
+ * global
+ */
+
+$name    : '.kdb-tagList';
+$transition : .6s cubic-bezier(.4,.38,0,1.19);
+$tagList-layout-padding: 10px;
+$tagList-layout-radius: 10px;
+$tagList-layout-background: #fff;
+$tagList-layout-margin: 5px;
+$tagList-layout-font-size: 12px;
+$tagList-layout-translate: translate(40px, 0px);
+$tagList-layout-anion-translate: translate(0px, 0px);
+$tagList-layout-opacity: translate(40px, 0px);
+$tagList-layout-anion-opacity: 1;
+
+$tagList-title-line-content: '|';
+$tagList-title-line-padding: 0 10px;
+
+$tagList-value-padding: 0 20px 0 0;
+
+$tagList-tagsRemove-ani-translate0: translate(0px, 0px);
+$tagList-tagsRemove-ani-translate20: translate(0px, -10px);
+$tagList-tagsRemove-ani-translate100: translate(0px, 100px);
+
+/*
+ * Build
+ */
+
+@mixin layout {
   display: flex;
   align-content: center;
   align-items: center;
-  padding: 10px;
-  border-radius: 10px;
-  background-color: #fff;
-  margin: 5px;
-  font-size: 12px;
-  transform: translate(40px, 0px);
-  transition: .6s cubic-bezier(.4,.38,0,1.19);
-  opacity: 0;
-  &.remove {
-    animation: tagsRemove .7s cubic-bezier(.4,.38,0,1.19);
-  }
-  &.anion {
-    transform: translate(0px, 0px);
-    opacity: 1;
-  }
+  padding: $tagList-layout-padding;
+  border-radius: $tagList-layout-radius;
+  background-color: $tagList-layout-background;
+  margin: $tagList-layout-margin;
+  font-size: $tagList-layout-font-size;
+  transform: $tagList-layout-translate;
+  transition: $transition;
+  opacity: $tagList-layout-opacity;
+}
+
+@mixin title {
   .title {
     &:after {
-      content: '|';
-      padding: 0 10px;
+      content: $tagList-title-line-content;
+      padding: $tagList-title-line-padding;
       display: inline-block;
     }
   }
+}
+
+@mixin value {
   .value {
-    padding-right: 20px;
-  }
-  .isClick {
-
+    padding: $tagList-value-padding;
   }
 }
 
-.filterSave {
-  font-size: 12px;
-  text-decoration: underline;
-  margin: 5px 0 0 10px;
-  transform: translate(40px, 0px);
-  transition: .6s cubic-bezier(.4,.38,0,1.19);
-  opacity: 0;
+/*
+ * Options
+ */
+
+@mixin remove {
+  &.remove {
+    animation: tagsRemove $transition;
+  }
+}
+
+@mixin anion {
   &.anion {
-    transform: translate(0px, 0px);
-    opacity: 1;
+    transform: $tagList-layout-anion-translate;
+    opacity: $tagList-layout-anion-opacity;
   }
 }
+
 
 @keyframes tagsRemove {
-  0%   {transform: translate(0px, 0px);}
-  20%  {transform: translate(0px, -10px);}
-  100% {transform: translate(0px, 100px);opacity: 0}
+  0%   {transform: $tagList-tagsRemove-ani-translate0}
+  20%  {transform: $tagList-tagsRemove-ani-translate20}
+  100% {transform: $tagList-tagsRemove-ani-translate100; opacity: 0}
 }
+
+
+/*
+ * Init
+ */
+@mixin kdb-tagList ($selector: $name) {
+  #{$selector} {
+    @include layout;
+    @include remove;
+    @include anion;
+    @include title;
+    @include value;
+  }
+}
+
+@include kdb-tagList ;
